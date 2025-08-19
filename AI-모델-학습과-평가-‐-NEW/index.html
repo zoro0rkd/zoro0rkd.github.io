@@ -3283,7 +3283,7 @@
   라벨이 없는 대규모 데이터(예: 음성, 이미지, 텍스트 등)에서 유용한 특징(Feature) 표현을 자동으로 학습합니다.</li>
 <li><strong>학습 방식:</strong>  </li>
 <li>입력 데이터에서 인위적으로 학습 신호를 생성합니다.</li>
-<li>예시: 같은 음성 클립에서 두 가지 서로 다른 변환(증강)을 적용해 파형 쌍 <span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">(x, x')</span><script type="math/tex">(x, x')</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">(x, x')</span><script type="math/tex">(x, x')</script></span></script></span>를 만듭니다.</li>
+<li>예시: 같은 음성 클립에서 두 가지 서로 다른 변환(증강)을 적용해 파형 쌍 <span class="arithmatex">\(<span class="arithmatex">\((x, x')\)</span>\)</span>를 만듭니다.</li>
 <li>인코더(Encoder)는 이 두 파형의 표현이 서로 가깝도록 학습합니다.</li>
 <li><strong>대표적 손실 함수:</strong>  </li>
 <li><strong>InfoNCE</strong>: 대표적인 contrastive(대비) 손실로, 같은 클립 쌍은 유사하게, 다른 클립은 멀어지도록 만듭니다.</li>
@@ -3537,7 +3537,7 @@ print('평균 점수:', scores.mean())
 <h5 id="2-xavier-glorot-initialization">2. <strong>Xavier 초기화 (Glorot Initialization)</strong><a class="headerlink" href="#2-xavier-glorot-initialization" title="Permanent link">&para;</a></h5>
 <ul>
 <li>주로 <strong>Sigmoid, Tanh</strong> 활성화 함수에서 사용.</li>
-<li>각 층의 입력 개수(<span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">n_{in}</span><script type="math/tex">n_{in}</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">n_{in}</span><script type="math/tex">n_{in}</script></span></script></span>)와 출력 개수(<span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">n_{out}</span><script type="math/tex">n_{out}</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">n_{out}</span><script type="math/tex">n_{out}</script></span></script></span>)에 따라 분포의 범위를 조정하여, 신호가 각 층에서 적절히 전달되도록 함.</li>
+<li>각 층의 입력 개수(<span class="arithmatex">\(<span class="arithmatex">\(n_{in}\)</span>\)</span>)와 출력 개수(<span class="arithmatex">\(<span class="arithmatex">\(n_{out}\)</span>\)</span>)에 따라 분포의 범위를 조정하여, 신호가 각 층에서 적절히 전달되도록 함.</li>
 <li>예시:</li>
 <li><strong>균등분포:</strong> $$ w \sim U\left(-\frac{\sqrt{6}}{\sqrt{n_{in} + n_{out}}}, \frac{\sqrt{6}}{\sqrt{n_{in} + n_{out}}}\right) $$</li>
 <li><strong>정규분포:</strong> $$ w \sim N\left(0, \frac{2}{n_{in} + n_{out}}\right) $$</li>
@@ -3545,7 +3545,7 @@ print('평균 점수:', scores.mean())
 <h5 id="3-he-kaiming-initialization">3. <strong>He 초기화 (Kaiming Initialization)</strong><a class="headerlink" href="#3-he-kaiming-initialization" title="Permanent link">&para;</a></h5>
 <ul>
 <li><strong>ReLU</strong> 계열 활성화 함수 사용할 때 적합.</li>
-<li>입력 노드 개수(<span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">n_{in}</span><script type="math/tex">n_{in}</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">n_{in}</span><script type="math/tex">n_{in}</script></span></script></span>)만 고려해서 더 큰 분산을 사용, ReLU가 많은 값을 0으로 만들 수 있기 때문.</li>
+<li>입력 노드 개수(<span class="arithmatex">\(<span class="arithmatex">\(n_{in}\)</span>\)</span>)만 고려해서 더 큰 분산을 사용, ReLU가 많은 값을 0으로 만들 수 있기 때문.</li>
 <li>예시:</li>
 <li><strong>정규분포:</strong> $$ w \sim N\left(0, \frac{2}{n_{in}}\right) $$</li>
 <li><strong>균등분포:</strong> $$ w \sim U\left(-\sqrt{\frac{6}{n_{in}}}, \sqrt{\frac{6}{n_{in}}}\right) $$</li>
@@ -3576,7 +3576,7 @@ print('평균 점수:', scores.mean())
 <li>딥러닝 학습은 <strong>경사 하강법(gradient descent)</strong>과 <strong>역전파(backpropagation)</strong>에 기반함.</li>
 <li>역전파를 위해선 활성화 함수가 <strong>미분 가능</strong>해야 함.</li>
 <li>하지만 <strong>Heaviside step function</strong>은:</li>
-<li><span class="arithmatex"><span class="MathJax_Preview"> x = 0 </span><script type="math/tex"> x = 0 </script></span>에서 <strong>미분 불가능</strong></li>
+<li><span class="arithmatex">\( x = 0 \)</span>에서 <strong>미분 불가능</strong></li>
 <li>그 외의 구간에서는 도함수가 <strong>0</strong> → <strong>기울기 소실(vanishing gradient)</strong> 문제 발생</li>
 <li>따라서 가중치를 효과적으로 <strong>업데이트할 수 없음</strong> → 학습이 불가능</li>
 </ul>
@@ -3590,7 +3590,7 @@ print('평균 점수:', scores.mean())
 </ul>
 <h5 id="3-relu">3. ReLU와의 비교: 부분 미분 가능성<a class="headerlink" href="#3-relu" title="Permanent link">&para;</a></h5>
 <ul>
-<li><strong>ReLU(Rectified Linear Unit)</strong>도 <span class="arithmatex"><span class="MathJax_Preview"> x = 0 </span><script type="math/tex"> x = 0 </script></span>에서 미분 불가능하지만:</li>
+<li><strong>ReLU(Rectified Linear Unit)</strong>도 <span class="arithmatex">\( x = 0 \)</span>에서 미분 불가능하지만:</li>
 <li>대부분 구간에서 <strong>미분 가능</strong></li>
 <li><strong>부분 도함수(subderivative)</strong> 등을 통해 학습 가능</li>
 <li>반면, step 함수는 거의 모든 구간에서 도함수가 0 → 실질적 학습 불가</li>
@@ -4116,7 +4116,7 @@ print('평균 점수:', scores.mean())
 [9] 머신러닝 학습 모니터링 데이터 버저닝을 위한 clearml <a href="https://www.youtube.com/watch?v=pIXxdFBdSEM">https://www.youtube.com/watch?v=pIXxdFBdSEM</a></p>
 <h3 id="pflops-days">PFLOPS-days 절감 전략 선택을 위한 기본 개념 정리<a class="headerlink" href="#pflops-days" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>PFLOPS-days</strong>는 대규모 AI/머신러닝 트레이닝에서 사용하는 연산량 단위로, 1초에 1펫타플롭스(= <span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">10^{15}</span><script type="math/tex">10^{15}</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">10^{15}</span><script type="math/tex">10^{15}</script></span></script></span> FLOPS)의 계산 속도를 하루(86,400초) 동안 수행했을 때의 총 연산량을 의미합니다.</li>
+<li><strong>PFLOPS-days</strong>는 대규모 AI/머신러닝 트레이닝에서 사용하는 연산량 단위로, 1초에 1펫타플롭스(= <span class="arithmatex">\(<span class="arithmatex">\(10^{15}\)</span>\)</span> FLOPS)의 계산 속도를 하루(86,400초) 동안 수행했을 때의 총 연산량을 의미합니다.</li>
 <li>예) “3,000 PFLOPS-days”는 1 PFLOPS의 컴퓨팅 자원으로 3,000일, 혹은 3,000 PFLOPS의 클러스터에서 1일간 작업한 총 연산량입니다[1][2][3].</li>
 </ul>
 <h4 id="pflops-days_1">총학습 비용(PFLOPS-days)에 영향을 주는 요소<a class="headerlink" href="#pflops-days_1" title="Permanent link">&para;</a></h4>
@@ -4227,22 +4227,22 @@ print('평균 점수:', scores.mean())
 <tbody>
 <tr>
 <td>Accuracy (정확도)</td>
-<td><span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">\frac{TP + TN}{TP + TN + FP + FN}</span><script type="math/tex">\frac{TP + TN}{TP + TN + FP + FN}</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">\frac{TP + TN}{TP + TN + FP + FN}</span><script type="math/tex">\frac{TP + TN}{TP + TN + FP + FN}</script></span></script></span></td>
+<td><span class="arithmatex">\(<span class="arithmatex">\(\frac{TP + TN}{TP + TN + FP + FN}\)</span>\)</span></td>
 <td>전체 예측 중에서 맞게 예측한 비율. 클래스 불균형이 심할 때는 신뢰도가 떨어질 수 있음[1][2].</td>
 </tr>
 <tr>
 <td>Precision (정밀도)</td>
-<td><span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">\frac{TP}{TP + FP}</span><script type="math/tex">\frac{TP}{TP + FP}</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">\frac{TP}{TP + FP}</span><script type="math/tex">\frac{TP}{TP + FP}</script></span></script></span></td>
+<td><span class="arithmatex">\(<span class="arithmatex">\(\frac{TP}{TP + FP}\)</span>\)</span></td>
 <td>양성으로 예측한 것 중 실제로 양성인 비율. False Positive(오탐)를 줄이는 데 중요[3][4].</td>
 </tr>
 <tr>
 <td>Recall (재현율)</td>
-<td><span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">\frac{TP}{TP + FN}</span><script type="math/tex">\frac{TP}{TP + FN}</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">\frac{TP}{TP + FN}</span><script type="math/tex">\frac{TP}{TP + FN}</script></span></script></span></td>
+<td><span class="arithmatex">\(<span class="arithmatex">\(\frac{TP}{TP + FN}\)</span>\)</span></td>
 <td>실제 양성 중에서 모델이 맞게 예측한 비율. False Negative(누락)를 줄이는 데 중요[3][5][2].</td>
 </tr>
 <tr>
 <td>F1-Score</td>
-<td><span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">2 \times \frac{Precision \times Recall}{Precision + Recall}</span><script type="math/tex">2 \times \frac{Precision \times Recall}{Precision + Recall}</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">2 \times \frac{Precision \times Recall}{Precision + Recall}</span><script type="math/tex">2 \times \frac{Precision \times Recall}{Precision + Recall}</script></span></script></span></td>
+<td><span class="arithmatex">\(<span class="arithmatex">\(2 \times \frac{Precision \times Recall}{Precision + Recall}\)</span>\)</span></td>
 <td>정밀도와 재현율의 조화평균. 두 지표의 균형이 필요할 때 사용. 1에 가까울수록 성능이 우수[6].</td>
 </tr>
 <tr>
@@ -4299,12 +4299,12 @@ print('평균 점수:', scores.mean())
 <tbody>
 <tr>
 <td>MSE (Mean Squared Error, 평균 제곱 오차)</td>
-<td>실제값과 예측값 차이를 제곱한 뒤 평균한 값<br> <span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">\text{MSE} = \frac{1}{n} \sum (y_i - \hat{y_i})^2</span><script type="math/tex">\text{MSE} = \frac{1}{n} \sum (y_i - \hat{y_i})^2</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">\text{MSE} = \frac{1}{n} \sum (y_i - \hat{y_i})^2</span><script type="math/tex">\text{MSE} = \frac{1}{n} \sum (y_i - \hat{y_i})^2</script></span></script></span></td>
+<td>실제값과 예측값 차이를 제곱한 뒤 평균한 값<br> <span class="arithmatex">\(<span class="arithmatex">\(\text{MSE} = \frac{1}{n} \sum (y_i - \hat{y_i})^2\)</span>\)</span></td>
 <td>큰 오차에 더 큰 패널티를 줌으로써, 큰 예측 오차가 중요시됨. 이상치에 민감함. 값이 작을수록 좋음.</td>
 </tr>
 <tr>
 <td>RMSE (Root Mean Squared Error, 평균 제곱근 오차)</td>
-<td>MSE의 제곱근을 취해 오차 단위를 실제 데이터 단위에 맞춤<br> <span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">\text{RMSE} = \sqrt{\text{MSE}}</span><script type="math/tex">\text{RMSE} = \sqrt{\text{MSE}}</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">\text{RMSE} = \sqrt{\text{MSE}}</span><script type="math/tex">\text{RMSE} = \sqrt{\text{MSE}}</script></span></script></span></td>
+<td>MSE의 제곱근을 취해 오차 단위를 실제 데이터 단위에 맞춤<br> <span class="arithmatex">\(<span class="arithmatex">\(\text{RMSE} = \sqrt{\text{MSE}}\)</span>\)</span></td>
 <td>MSE보다 해석이 직관적이며, 큰 오차에 민감. 값이 작을수록 좋음.</td>
 </tr>
 <tr>
@@ -4313,7 +4313,7 @@ print('평균 점수:', scores.mean())
 <td>y_i - \hat{y_i}</td>
 </tr>
 <tr>
-<td><span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">R^2</span><script type="math/tex">R^2</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">R^2</span><script type="math/tex">R^2</script></span></script></span> (결정계수)</td>
+<td><span class="arithmatex">\(<span class="arithmatex">\(R^2\)</span>\)</span> (결정계수)</td>
 <td>모델이 실제 데이터를 얼마나 잘 설명하는지 나타내는 지표로, 1에 가까울수록 좋은 모델<br> $$ R^2 = 1 - \frac{\sum (y_i - \hat{y_i})^2}{\sum (y_i - \bar{y})^2} $$</td>
 <td>음수가 될 수도 있으나, 일반적으로 0~1 사이 값을 가지며 클수록 설명력이 높음.</td>
 </tr>
@@ -4362,18 +4362,13 @@ print('평균 점수:', scores.mean())
 <p>코사인 유사도(Cosine Similarity)는 두 벡터 간의 방향이 얼마나 유사한지를 측정하는 지표로, 벡터의 크기보다는 두 벡터가 이루는 각도(코사인 값)를 기반으로 유사도를 계산합니다. 값의 범위는 -1에서 1 사이이며, 1에 가까울수록 두 벡터가 같은 방향, 0에 가까울수록 두 벡터가 직각, -1은 완전히 반대 방향임을 의미합니다.</p>
 <h4 id="_40">코사인 유사도 계산식<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h4>
 <p>코사인 유사도는 다음의 수식으로 계산됩니다.</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">
+<div class="arithmatex">\[
 \text{cosine similarity} = \frac{\mathbf{A} \cdot \mathbf{B}}{\|\mathbf{A}\| \cdot \|\mathbf{B}\|}
-</div>
-<script type="math/tex; mode=display">
-\text{cosine similarity} = \frac{\mathbf{A} \cdot \mathbf{B}}{\|\mathbf{A}\| \cdot \|\mathbf{B}\|}
-</script>
-</div>
+\]</div>
 <p>여기서<br />
-- <span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">\mathbf{A} \cdot \mathbf{B}</span><script type="math/tex">\mathbf{A} \cdot \mathbf{B}</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">\mathbf{A} \cdot \mathbf{B}</span><script type="math/tex">\mathbf{A} \cdot \mathbf{B}</script></span></script></span>: 벡터 A와 B의 내적<br />
-- <span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">\|\mathbf{A}\|</span><script type="math/tex">\|\mathbf{A}\|</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">\|\mathbf{A}\|</span><script type="math/tex">\|\mathbf{A}\|</script></span></script></span>: 벡터 A의 크기(노름)<br />
-- <span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">\|\mathbf{B}\|</span><script type="math/tex">\|\mathbf{B}\|</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">\|\mathbf{B}\|</span><script type="math/tex">\|\mathbf{B}\|</script></span></script></span>: 벡터 B의 크기(노름)</p>
+- <span class="arithmatex">\(<span class="arithmatex">\(\mathbf{A} \cdot \mathbf{B}\)</span>\)</span>: 벡터 A와 B의 내적<br />
+- <span class="arithmatex">\(<span class="arithmatex">\(\|\mathbf{A}\|\)</span>\)</span>: 벡터 A의 크기(노름)<br />
+- <span class="arithmatex">\(<span class="arithmatex">\(\|\mathbf{B}\|\)</span>\)</span>: 벡터 B의 크기(노름)</p>
 <h4 id="_41">코사인 유사도 이용 사례<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>문서 유사도 측정</strong>: 자연어 처리(NLP) 분야에서 두 개의 문서가 얼마나 유사한지 평가할 때 문서별 단어 벡터(또는 TF-IDF 벡터) 간의 코사인 유사도를 활용.</li>
