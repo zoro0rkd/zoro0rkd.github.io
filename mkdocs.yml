@@ -1,0 +1,22 @@
+site_name: Sang-ik Notes
+site_url: https://zoro0rkd.github.io/
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+nav:
+  - 홈: Index.md
+  - AI 모델 개발:
+      - 아키텍처 설계: AI-모델-아키텍처-설계-‐-NEW.md
+      - 학습과 평가: AI-모델-학습과-평가-‐-NEW.md
+  - 유용한 사이트: 유용한-사이트.md
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+plugins:
+  - search  # 기본 내장 (Lunr 기반)
