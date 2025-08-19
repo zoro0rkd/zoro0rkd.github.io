@@ -19,6 +19,7 @@ markdown_extensions:
   - toc:
       permalink: true
   - pymdownx.magiclink
-  - pymdownx.arithmatex
+  - pymdownx.arithmatex:
+      generic: true
 plugins:
   - search  # 기본 내장 (Lunr 기반)
