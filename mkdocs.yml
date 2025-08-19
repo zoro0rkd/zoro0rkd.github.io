@@ -9,7 +9,7 @@ theme:
     - search.highlight
     - content.code.copy
 nav:
-  - 홈: Index.md
+  - 홈: index.md
   - AI 모델 개발:
       - 아키텍처 설계: AI-모델-아키텍처-설계-‐-NEW.md
       - 학습과 평가: AI-모델-학습과-평가-‐-NEW.md
