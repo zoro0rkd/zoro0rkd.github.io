@@ -18,11 +18,7 @@ markdown_extensions:
   - admonition
   - toc:
       permalink: true
-  - pymdownx.linkify
-  - pymdownx.arithmatex:
-      generic: true
+  - pymdownx.magiclink
+  - pymdownx.arithmatex
 plugins:
   - search  # 기본 내장 (Lunr 기반)
-extra_javascript:
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
