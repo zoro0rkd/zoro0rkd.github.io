@@ -601,18 +601,22 @@ Instruction Tuning은 LLM이 다양한 자연어 명령을 이해하고 수행�
 https://kyujinpy.tistory.com/39
 
 ### **SimCLR**
+<img width="826" height="397" alt="simclr-general-architecture" src="https://github.com/user-attachments/assets/504a39a7-b78b-4616-946b-49dfb2bb4124" />
+
 A Simple Framework for Contrastive Learning of Visual Representations
 
 - 이미지 분류
 - 핵심 아이디어 : 유사한 이미지와 다른 이미지를 생성 후, 유사한 이미지는 feature space에 가깝도록, 다른 이미지는 멀도록 학습
 - loss function
-![image.png](attachment:692747ca-88a3-4d55-8e29-1e777abdd761:image.png)
     - 분자: positive sample(유사한샘플)간의 유사도
     - 분모: negative sample(다른샘플)간의 유사도 
 
 ---
 
 ### **BYOL**
+
+<img width="1041" height="613" alt="byol-overview" src="https://github.com/user-attachments/assets/9e6b96db-8c72-41bd-be9a-063acf50b267" />
+
 Bootstrap your own latent: A new approach to self-supervised Learning
 
 - 이미지 분류
@@ -634,6 +638,9 @@ Bootstrap your own latent: A new approach to self-supervised Learning
 ---
 
 ### **MAE(masked auto encoder)**
+<img width="1308" height="722" alt="1*9Jec3nnOGbWrQ5_SjPf2Ow" src="https://github.com/user-attachments/assets/e71e3a9b-3261-4864-a1c8-502240b06b05" />
+
+
 - 입력 이미지에 랜덤 패치 마스킹→ 픽셀 공간에서 누락된 패치 재구성
 - MAE는 비대칭 인코더-디코더 형식
     - 인코더는 (마스크 토큰 없이) 보이는 패치의 부분집합에서만 작동하며

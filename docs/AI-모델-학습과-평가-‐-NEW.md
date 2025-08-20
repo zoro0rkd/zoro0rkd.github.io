@@ -916,8 +916,6 @@ Normalization(정규화)은 **뉴럴 네트워크의 학습과정에서 데이�
 | 불균형 클래스 문제         | **F1 Score**       | Precision과 Recall 모두 중요 |
 | 전체 모델 평가           | **ROC Curve, AUC** | 임계값 변화에 대한 전체 성향 시각화    |
 
-## 5. 모델 평가 개요
-
 ### 회귀(Regression) 지표
 
 회귀 문제에서는 실제 연속적인 값을 예측하므로, 예측값과 실제값 간의 오차를 기반으로 모델 성능을 평가합니다. 대표적인 지표들은 다음과 같습니다.
@@ -1019,6 +1017,8 @@ $$
 ## 6. 모델 평가 심화
 
 ### 혼동 행렬(Confusion Matrix) 해석
+<img width="754" height="425" alt="edfa849b-03fb-43d2-aba5-1f53a8884e6f_image5" src="https://github.com/user-attachments/assets/48e387b1-09e5-4845-9e9c-4ca94ed2aa22" />
+
 혼동 행렬은 분류 모델 성능을 평가하는 데 많이 사용되는 도구로, 모델의 예측값과 실제값 간 관계를 표로 나타냅니다. 보통 다음 4가지 요소로 구성됩니다:
 
 - **True Positive (TP)**: 실제 Positive를 정확히 Positive로 예측
