@@ -1,0 +1,1713 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://zoro0rkd.github.io/AI-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EC%84%A4%EA%B3%84-%EB%B0%8F-%EB%B0%B0%ED%8F%AC-%E2%80%90-NEW/">
+      
+      
+        <link rel="prev" href="../AI-%EB%AA%A8%EB%8D%B8-%ED%8A%9C%EB%8B%9D-%E2%80%90-NEW/">
+      
+      
+        <link rel="next" href="../AI-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EC%B5%9C%EC%A0%81%ED%99%94-%E2%80%90-NEW/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+    
+    
+      
+        <title>AI 시스템 설계 및 배포 - Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Notes" class="md-header__button md-logo" aria-label="Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AI 시스템 설계 및 배포
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Notes" class="md-nav__button md-logo" aria-label="Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    홈
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AI 데이터 전처리
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            AI 데이터 전처리
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%88%98%EC%A7%91-%E2%80%90-NEW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    데이터 수집
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%95%EC%A0%9C-%E2%80%90-NEW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    데이터 정제
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A6%9D%EA%B0%95-%E2%80%90-NEW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    데이터 증강
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AI 모델 개발
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            AI 모델 개발
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AI-%EB%AA%A8%EB%8D%B8-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EC%84%A4%EA%B3%84-%E2%80%90-NEW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AI 모델 아키텍처 설계
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../XAI-%E2%80%90-NEW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    XAI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AI-%EB%AA%A8%EB%8D%B8-%ED%95%99%EC%8A%B5%EA%B3%BC-%ED%8F%89%EA%B0%80-%E2%80%90-NEW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AI 모델 학습과 평가
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AI-%EB%AA%A8%EB%8D%B8-%ED%8A%9C%EB%8B%9D-%E2%80%90-NEW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AI 모델 튜닝
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AI 시스템 구축
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            AI 시스템 구축
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    AI 시스템 설계 및 배포
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    AI 시스템 설계 및 배포
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 모델 배포 개념
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 모델 배포 개념">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-model-in-service-vs-model-as-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Model-in-service vs Model-as-service
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 Model-in-service vs Model-as-service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      정의 및 특징 비교
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      적용 시나리오
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      구조 다이어그램
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 적용 사례
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. AI 모델 배포 프로세스
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. AI 모델 배포 프로세스">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 전체 흐름
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 전체 흐름">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flask-pytorch" class="md-nav__link">
+    <span class="md-ellipsis">
+      예시: 이미지 분류 모델 배포 (Flask + PyTorch)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 프로세스 순서도
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      프로세스 순서 요약 (간단 순서도)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      추가적으로 고려할 사항
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 배포 환경 설계
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 배포 환경 설계">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 종속성 관리
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 종속성 관리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-onnx" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 모델 표준화 (ONNX)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-docker-bentoml" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 컨테이너 활용 (Docker, BentoML 등)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-spof" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 단일장애점(SPOF) 대응
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 컨테이너 vs 가상 머신
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 배포 전략
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 배포 전략">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 무중단 배포
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 모델 롤아웃
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 보안 및 운영 고려 사항
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 보안 및 운영 고려 사항">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      API 인증 및 접근 제어
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      데이터 암호화
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      취약점 분석 및 대응
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 클라우드 플랫폼별 배포
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 클라우드 플랫폼별 배포">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      하이브리드/온프레미스 배포 고려사항
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AI-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EC%B5%9C%EC%A0%81%ED%99%94-%E2%80%90-NEW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AI 시스템 최적화
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%EC%9C%A0%EC%9A%A9%ED%95%9C-%EC%82%AC%EC%9D%B4%ED%8A%B8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    유용한 사이트
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 모델 배포 개념
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 모델 배포 개념">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-model-in-service-vs-model-as-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Model-in-service vs Model-as-service
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 Model-in-service vs Model-as-service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      정의 및 특징 비교
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      적용 시나리오
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      구조 다이어그램
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 적용 사례
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. AI 모델 배포 프로세스
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. AI 모델 배포 프로세스">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 전체 흐름
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 전체 흐름">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flask-pytorch" class="md-nav__link">
+    <span class="md-ellipsis">
+      예시: 이미지 분류 모델 배포 (Flask + PyTorch)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 프로세스 순서도
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      프로세스 순서 요약 (간단 순서도)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      추가적으로 고려할 사항
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 배포 환경 설계
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 배포 환경 설계">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 종속성 관리
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 종속성 관리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-onnx" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 모델 표준화 (ONNX)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-docker-bentoml" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 컨테이너 활용 (Docker, BentoML 등)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-spof" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 단일장애점(SPOF) 대응
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 컨테이너 vs 가상 머신
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 배포 전략
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 배포 전략">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 무중단 배포
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 모델 롤아웃
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 보안 및 운영 고려 사항
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 보안 및 운영 고려 사항">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      API 인증 및 접근 제어
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      데이터 암호화
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      취약점 분석 및 대응
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 클라우드 플랫폼별 배포
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 클라우드 플랫폼별 배포">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      하이브리드/온프레미스 배포 고려사항
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>AI 시스템 설계 및 배포</h1>
+
+<h2 id="1">1. 모델 배포 개념<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="11-model-in-service-vs-model-as-service">1.1 Model-in-service vs Model-as-service<a class="headerlink" href="#11-model-in-service-vs-model-as-service" title="Permanent link">&para;</a></h3>
+<p>AI 모델을 실제 서비스에 배포할 때는 모델을 어떻게 웹 시스템과 통합하여 배포할 것인지를 결정해야 합니다. 
+이때 대표적인 방식이 Model-in-service와 Model-as-service입니다.</p>
+<h4 id="_1">정의 및 특징 비교<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>Model-in-service</th>
+<th>Model-as-service</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>개념</td>
+<td>모델이 웹서버 내부에 포함되어 함께 배포됨</td>
+<td>모델이 웹서버와 분리되어 독립 서비스로 배포됨</td>
+</tr>
+<tr>
+<td>구성</td>
+<td>하나의 통합 서비스  (예: Flask 서버 안에 모델 포함)</td>
+<td>모델은 REST API 또는 gRPC로 제공되는 별도 서비스</td>
+</tr>
+<tr>
+<td>배포 구조</td>
+<td>단일 컨테이너 또는 프로세스</td>
+<td>두 개 이상의 컨테이너 (예: 웹 서버 + 모델 서버)</td>
+</tr>
+<tr>
+<td>장점</td>
+<td>- 배포 간단<br/>- 기존 인프라 활용 가능<br/>- 개발 초기 단계에 적합</td>
+<td>- 유지보수 용이<br/>- 스케일링 유연<br/>- 다양한 애플리케이션과 재사용 가능</td>
+</tr>
+<tr>
+<td>단점</td>
+<td>- 웹서버 리소스를 많이 사용<br/>- 모델 교체 시 전체 재배포 필요</td>
+<td>- 초기 구축 복잡<br/>- 지연(latency) 이슈 발생 가능</td>
+</tr>
+<tr>
+<td>예시</td>
+<td>Flask + PyTorch 모델 함께 패키징</td>
+<td>FastAPI 서버 ↔ TensorFlow Serving API 연동</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_2">적용 시나리오<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>추천 방식</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>빠르게 데모를 만들고 싶다</td>
+<td>Model-in-service</td>
+</tr>
+<tr>
+<td>모델과 프론트/백엔드를 분리하고 싶다</td>
+<td>Model-as-service</td>
+</tr>
+<tr>
+<td>모델 성능 개선이 자주 있다</td>
+<td>Model-as-service</td>
+</tr>
+<tr>
+<td>리소스가 제한된 환경에서 운영</td>
+<td>Model-in-service</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_3">구조 다이어그램<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<pre><code>[Model-in-service]
+┌─────────────┐
+│  웹 서버      │
+│ + 모델 내장   │
+└─────────────┘
+
+[Model-as-service]
+┌─────────────┐        ┌─────────────┐
+│  웹 서버      │ &lt;───&gt;  │   모델 서버   │
+└─────────────┘        └─────────────┘
+</code></pre>
+<h3 id="12">1.2 적용 사례<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Model-in-service: 스타트업이 MVP 또는 내부 도구로 Flask/Django 서버에 모델 내장</li>
+<li>Model-as-service: 대기업에서 Kubeflow, TensorFlow Serving, NVIDIA Triton, Docker 등을 이용한 마이크로서비스 구조</li>
+</ul>
+<hr />
+<h2 id="2-ai">2. AI 모델 배포 프로세스<a class="headerlink" href="#2-ai" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 전체 흐름<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>1) 데이터 준비 및 전처리 (Preprocessing)
+* 원시 데이터를 수집, 정제, 정규화하여 모델 학습에 적합한 형태로 변환
+* 예: 결측치 제거, 스케일링, 텍스트 토큰화 등</p>
+<p>2) 모델 설계 및 학습 (Training)
+* 적절한 알고리즘 선택 (CNN, RNN, Transformer 등)
+* 하이퍼파라미터 튜닝 및 교차검증 수행
+* 학습 완료 후 모델 파일 저장 (예: .pt, .h5, .pkl)</p>
+<p>3) 모델 평가 및 검증 (Validation &amp; Evaluation)
+* 테스트 데이터로 모델 성능 확인 (정확도, 재현율, F1 score 등)
+* 성능 기준을 만족하면 배포 준비</p>
+<p>4) 모델 패키징 (Packaging)
+* 모델 파일과 함께 실행 환경(코드, 라이브러리, 설정 파일 등)을 포함
+* 일반적으로 Docker, Conda, ONNX, TorchScript 등 활용</p>
+<p>5) 서빙 환경 구성 (Serving)
+* 모델을 API 형태로 배포 (REST API, gRPC 등)
+* 예: Flask + PyTorch, FastAPI + TensorFlow, TorchServe, TensorFlow Serving, NVIDIA Triton</p>
+<p>6) 배포 (Deployment)
+* 서버/클라우드/엣지 디바이스에 모델 업로드 및 실행
+* 방법: Model-in-service / Model-as-service
+* 플랫폼: AWS SageMaker, GCP Vertex AI, Azure ML 등</p>
+<p>7) 모니터링 및 관리 (Monitoring &amp; Maintenance)
+* 응답 속도, 오류율, drift, 모델 정확도 변화 추적
+* 모니터링 도구: Prometheus, Grafana, Seldon Core 등</p>
+<p>8) 재학습 및 업데이트 (Retraining &amp; Continuous Deployment)
+* 피드백 및 새로운 데이터 수집 기반으로 모델 재학습 및 자동 업데이트 (MLOps 도입)</p>
+<h4 id="flask-pytorch">예시: 이미지 분류 모델 배포 (Flask + PyTorch)<a class="headerlink" href="#flask-pytorch" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash">app.py        ← REST API 서버
+model.pt      ← 저장된 PyTorch 모델
+requirements.txt
+Dockerfile    ← 패키징 정의
+</code></pre>
+<h3 id="22">2.2 프로세스 순서도<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<h2 id="_4">프로세스 순서 요약 (간단 순서도)<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<pre><code>데이터 수집
+    ↓
+전처리
+    ↓
+모델 학습 및 저장
+    ↓
+모델 평가
+    ↓
+패키징 및 서빙 환경 구성
+    ↓
+배포 (API or 클라우드)
+    ↓
+모니터링 및 유지관리
+</code></pre>
+<h2 id="_5">추가적으로 고려할 사항<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>버전 관리</td>
+<td>모델 버전별 관리 필요 (예: MLflow, DVC)</td>
+</tr>
+<tr>
+<td>보안</td>
+<td>인증, API 제한, 데이터 보호</td>
+</tr>
+<tr>
+<td>자동화 (MLOps)</td>
+<td>CI/CD, 자동 재배포, 파이프라인 관리</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3">3. 배포 환경 설계<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 종속성 관리<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>예측값은 코드, 모델 가중치, 그리고 디펜던시(종속성)에 따라 결정됩니다</strong>.</li>
+<li>따라서 웹 서버에 개발 환경과 동일한 디펜던시가 설정되어야 하지만, 이를 항상 보장하는 것은 어려운 작업입니다.<ul>
+<li>이는 디펜던시를 일관되게 유지하기 어렵고, 업데이트가 어려우며, 심지어 TensorFlow 버전 변경만으로도 모델에 변화가 생길 수 있기 때문입니다.</li>
+</ul>
+</li>
+</ul>
+<p><strong>종속성 관리의 두 가지 주요 전략</strong>:</p>
+<h4 id="1-onnx">1. 모델 표준화 (ONNX)<a class="headerlink" href="#1-onnx" title="Permanent link">&para;</a></h4>
+<pre><code>*   **ONNX (Open Neural Network Exchange) 라이브러리를 활용합니다**.
+*   **목표**: 언어, 패키지 버전 등과 무관하게 동일한 기능을 제공하여 **환경에 독립적으로 실행 가능한 ML 모델을 개발**하는 것입니다.
+*   **현실적 어려움**:
+    *   라이브러리 업데이트 속도가 빨라 변환 과정에서 버그가 자주 발생하며, 이를 해결하는 데 더 많은 작업이 필요할 수 있습니다.
+    *   TorchVision과 같은 주변 라이브러리는 지원되지 않는 경우가 많습니다.
+    *   특징 변환(feature transformations)과 같은 비-라이브러리 코드에 대해서는 어떻게 해야 할지 고려해야 합니다.
+</code></pre>
+<h4 id="2-docker-bentoml">2. 컨테이너 활용 (Docker, BentoML 등)<a class="headerlink" href="#2-docker-bentoml" title="Permanent link">&para;</a></h4>
+<pre><code>*   **도커(Docker)는 OS를 적은 용량/자원으로 가상화하여, 필요한 라이브러리와 애플리케이션만을 구동하는 방식입니다**.
+    *   이는 라이브러리, 애플리케이션뿐만 아니라 운영체제(OS)까지 하나의 패키지로 묶는 가상 머신(VM) 방식보다 가볍습니다.
+*   일반적으로 구분 가능한 작업마다 개별 컨테이너가 생성되어 사용됩니다.
+    *   예를 들어, 웹 애플리케이션은 웹 서버, 데이터베이스, 작업 큐(Job Queue), 워커(Worker) 등 4개의 컨테이너가 함께 동작할 수 있습니다.
+*   **도커 파일(Dockerfile)**을 통해 컨테이너가 생성되며, 클라우드나 별도 서버에 저장된 **도커 허브(Docker Hub)**를 통해 컨테이너를 공유할 수 있습니다.
+*   **도커는 세 가지 주요 요소로 구성됩니다**:
+    *   **클라이언트**: 도커 이미지를 구성하며 로컬 환경에서 여러 명령어를 통해 조작 가능합니다.
+    *   **도커 호스트**: 클라이언트의 명령어를 실행하고 이미지/컨테이너를 생성합니다 (서버 또는 로컬 환경 모두 가능).
+    *   **레지스트리**: 여러 컨테이너를 저장하고 도커 호스트와 직접 통신합니다.
+*   **강력한 생태계**: 공개된 퍼블릭 도커 허브에 다양한 이미지가 호스팅되어 있으며, 프라이빗 이미지 저장도 가능하여 거의 필수적으로 활용됩니다.
+*   **간소화 도구**: 도커는 입문 난이도가 다소 높은 편이므로, **Cog, BentoML, Truss**와 같은 서비스들은 이러한 과정을 간소화하고 모델 호스팅, 모델 패키징 등 다양한 기능을 제공합니다.
+</code></pre>
+<h3 id="32-spof">3.2 단일장애점(SPOF) 대응<a class="headerlink" href="#32-spof" title="Permanent link">&para;</a></h3>
+<p>단일장애점(SPOF, Single Point of Failure)은 시스템이나 네트워크에서 특정 구성 요소 하나가 고장 났을 때 전체 시스템이나 서비스가 중단되는 위험 요소를 의미합니다. 즉, 해당 요소의 장애가 전체 시스템의 작동 정지로 이어지는 취약점이 됩니다.
+주요 예시로는
+    •   하나의 데이터베이스 서버만 사용하는 경우
+    •   네트워크 허브, 스위치 같은 핵심 장비가 한 대뿐인 경우
+    •   단일 전원 공급장치
+    •   하나의 로드 밸런서
+등이 있습니다. 이 중 어느 하나라도 문제가 발생하면 전체 서비스가 중단될 수 있기 때문에, SPOF는 고가용성(High Availability)이나 신뢰성을 중요시하는 시스템에서는 반드시 제거 또는 완화가 필요합니다</p>
+<table>
+<thead>
+<tr>
+<th>방법</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>이중화(다중화)</strong></td>
+<td>동일한 기능을 수행하는 시스템을 여러 개 구축</td>
+</tr>
+<tr>
+<td><strong>로드 밸런서</strong></td>
+<td>여러 서버에 트래픽을 분산</td>
+</tr>
+<tr>
+<td><strong>자동 페일오버</strong></td>
+<td>문제가 발생하면 자동으로 다른 구성 요소로 전환</td>
+</tr>
+<tr>
+<td><strong>추가 고려 사항</strong></td>
+<td>모니터링/알림 및 백업/복제 체계 구축</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="33-vs">3.3 컨테이너 vs 가상 머신<a class="headerlink" href="#33-vs" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>컨테이너</th>
+<th>가상 머신(VM)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>격리 수준</strong></td>
+<td>프로세스 수준 (OS 공유)</td>
+<td>운영체제 수준 (완전한 OS 포함)</td>
+</tr>
+<tr>
+<td><strong>기동 속도</strong></td>
+<td>매우 빠름 (초 단위)</td>
+<td>느림 (분 단위일 수 있음)</td>
+</tr>
+<tr>
+<td><strong>리소스 사용</strong></td>
+<td>경량 구조로 효율적</td>
+<td>많은 메모리 &amp; 저장공간 필요</td>
+</tr>
+<tr>
+<td><strong>배포 용이성</strong></td>
+<td>이미지 하나로 어디서나 실행 가능</td>
+<td>환경에 따라 별도 설정 필요</td>
+</tr>
+<tr>
+<td><strong>보안 격리</strong></td>
+<td>프로세스 단위 격리로 상대적으로 약함</td>
+<td>완전한 격리로 보안 측면 유리</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4">4. 배포 전략<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 무중단 배포<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Rolling Update</th>
+<th>Blue-Green</th>
+<th>Canary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>배포 프로세스</strong></td>
+<td>애플리케이션 인스턴스를 순차적으로 업데이트하여 전체 시스템의 일부만 동시에 변경</td>
+<td>두 개의 동일한 환경(블루, 그린)을 준비: 블루는 현재 운영, 그린은 새 버전 배포</td>
+<td>새로운 버전을 소수 사용자에게만 배포 → 점진적으로 확대</td>
+</tr>
+<tr>
+<td><strong>기본 개념</strong></td>
+<td>- 순차적 업데이트<br>- 가용성 유지<br>- 자동 롤백</td>
+<td>- 블루 환경: 현재 운영<br>- 그린 환경: 새 버전 테스트</td>
+<td>- 카나리 인스턴스: 소수 서버에 배포<br>- 트래픽 비율 점진 증가</td>
+</tr>
+<tr>
+<td><strong>장점</strong></td>
+<td>- 고가용성<br>- <strong>점진적 변경</strong><br>- 신속 롤백</td>
+<td>- 무중단 서비스<br>- 신속 롤백<br>- <strong>테스트 용이성</strong></td>
+<td>- <strong>위험 최소화</strong><br>- 신속 롤백<br>- 점진적 배포</td>
+</tr>
+<tr>
+<td><strong>단점</strong></td>
+<td>- 롤백 시 실패 리스크<br>- 서빙/테스트 환경 혼재</td>
+<td>- 두 개 환경 유지 비용</td>
+<td>- 복잡한 라우팅 설정</td>
+</tr>
+</tbody>
+</table>
+<h3 id="42">4.2 모델 롤아웃<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>정의</strong>: 이미 배포된 상태의 모델을 <strong>업데이트하고 관리하는 과정</strong>을 의미합니다.</li>
+<li>
+<p>이는 모델 서비스를 구축하는 데 필요한 핵심 개념 중 하나입니다.</p>
+</li>
+<li>
+<p><strong>필수적인 배포 방식</strong>: 새로운 모델을 효율적으로 배포하기 위해서는 다음과 같은 기능들이 가능해야 합니다:</p>
+<ul>
+<li><strong>점진적 배포 (Gradual Rollout)</strong>: 기존 배포 버전에서 새로운 배포 버전으로 트래픽 양을 <strong>점진적으로 증가</strong>시키는 방식입니다.</li>
+<li><strong>즉각적 Rollback (Instant Rollback)</strong>: 문제가 발생한 배포 버전에서 새로운 배포 버전으로 <strong>즉각적인 변경</strong>을 수행하는 방식입니다.</li>
+<li><strong>배포 버전 관리 (Traffic Splitting)</strong>: 두 개의 배포 버전을 동시에 운영하며 <strong>트래픽을 배분</strong>하는 기능입니다.</li>
+<li><strong>파이프라인 배포</strong>: 개발된 파이프라인 플로우를 모델과 함께 배포하는 방식입니다.</li>
+</ul>
+</li>
+<li>
+<p><strong>구현의 복잡성</strong>: 이러한 롤아웃 기능들은 직접 구현하기 어려운 인프라 문제에 해당하며, 일반적으로 <strong>매니지드 서비스(managed service)</strong> 또는 배포 라이브러리, 인프라 팀의 도움을 통해 모델 배포에 적용됩니다.</p>
+</li>
+</ul>
+<hr />
+<h2 id="5">5. 보안 및 운영 고려 사항<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<h3 id="api">API 인증 및 접근 제어<a class="headerlink" href="#api" title="Permanent link">&para;</a></h3>
+<p>API 인증은 사용자의 신원을 검증하는 절차로, 대표적으로 OAuth2, OpenID Connect, JWT(JSON Web Token) 등 현대적인 인증 방식을 이용하여 신뢰성을 확보합니다. 인증과 더불어 <strong>접근 제어(Authorization)</strong>는 인증된 사용자에게 역할(Role)이나 권한(Permission)을 기반으로 자원 접근을 제한합니다. 접근 제어 구현 시에는 RBAC(역할기반 접근제어), 최소 권한 원칙(Least Privilege), API 키 관리 등 보안 방안을 적용합니다. 권한 관리와 강력한 인증은 무단 접근, 데이터 노출 및 비정상 행위로부터 중요한 API 자원을 보호하는 핵심 보안 수단입니다[1][2][5][10].</p>
+<hr />
+<h3 id="_6">데이터 암호화<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>API와 애플리케이션 간 송수신되는 데이터는 반드시 암호화해야 하며, HTTPS(SSL/TLS)를 통한 안전한 채널이 필수입니다. 이를 통해 기밀성(Confidentiality)을 보장하고, 중간자 공격(Man-in-the-Middle) 및 데이터 유출로부터 보호할 수 있습니다. 또한 저장 데이터에도 암호화를 적용하여, 시스템 내 데이터가 도난·유출되더라도 안전할 수 있도록 보호해야 합니다[1][3][4].</p>
+<hr />
+<h3 id="_7">취약점 분석 및 대응<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>API 환경은 지속적으로 변화하고 있으며, 다양한 공격에 노출될 수 있습니다. 이를 위해 다음과 같은 취약점 분석 및 대응이 필요합니다.
+- 정기적인 보안 점검 및 취약점 스캐닝을 수행하여 새로운 위험 요소를 식별함.
+- 입력값 검증과 출력값 관리로 인젝션(Injection), XSS 등 일반적 공격에 대응함.
+- 실시간 모니터링 및 이상 징후(비정상 접근, 반복적 실패, 트래픽 급증 등)를 탐지함.
+- 식별된 취약점에 대해서는 빠른 패치와 정책 개선으로 대응함.
+취약점 분석과 대응은 비즈니스 연속성과 데이터 무결성 및 신뢰성을 유지하는 데 매우 중요합니다[2][3][4].</p>
+<hr />
+<p>출처
+[1] API 보안을 위한 10가지 인증 모범 사례 - Apidog <a href="https://apidog.com/kr/blog/api-authentication-best-practices-2/">https://apidog.com/kr/blog/api-authentication-best-practices-2/</a>
+[2] API 보안 체크리스트: 최고 실행 방안, 테스트 및 NIST - F5 <a href="https://www.f5.com/ko_kr/company/blog/api-security-checklist">https://www.f5.com/ko_kr/company/blog/api-security-checklist</a>
+[3] API 보안이란 무엇인가요? <a href="https://www.paloaltonetworks.co.kr/cyberpedia/what-is-api-security">https://www.paloaltonetworks.co.kr/cyberpedia/what-is-api-security</a>
+[4] API 보안을 강화하는 방법 - Blog - 위베어소프트 <a href="https://blog.webaresoft.com/145ba73b-175e-80ca-8a5f-c2bc9b104e7a">https://blog.webaresoft.com/145ba73b-175e-80ca-8a5f-c2bc9b104e7a</a>
+[5] API 인증 대 권한 부여 | 알아야 할 보안 차이점 - Apidog <a href="https://apidog.com/kr/blog/api-authentication-vs-api-authorization-3/">https://apidog.com/kr/blog/api-authentication-vs-api-authorization-3/</a>
+[6] 11장 API 접근 보안 - velog <a href="https://velog.io/@rosesua318/11%EC%9E%A5-API-%EC%A0%91%EA%B7%BC-%EB%B3%B4%EC%95%88">https://velog.io/@rosesua318/11%EC%9E%A5-API-%EC%A0%91%EA%B7%BC-%EB%B3%B4%EC%95%88</a>
+[7] API 인증 방법 · Logto 블로그 <a href="https://blog.logto.io/ko/api-authorization-methods">https://blog.logto.io/ko/api-authorization-methods</a>
+[8] API 보안: API 보호 모범 사례 <a href="https://nginxstore.com/blog/api-security/api-%EB%B3%B4%EC%95%88-api-%EB%B3%B4%ED%98%B8-%EB%AA%A8%EB%B2%94-%EC%82%AC%EB%A1%80/">https://nginxstore.com/blog/api-security/api-%EB%B3%B4%EC%95%88-api-%EB%B3%B4%ED%98%B8-%EB%AA%A8%EB%B2%94-%EC%82%AC%EB%A1%80/</a>
+[9] API 의 접근제어 하기 - ePapyrus Tech Net - 이파피루스 <a href="https://technet.epapyrus.com/view/docs/streamdocs/5.11.4.0/docs/default-tutorial/pages/auth-main">https://technet.epapyrus.com/view/docs/streamdocs/5.11.4.0/docs/default-tutorial/pages/auth-main</a>
+[10] RESTful API 인증 및 권한 관리: 심화 과정 - subinto의 개발노트 <a href="https://subinto.tistory.com/180">https://subinto.tistory.com/180</a></p>
+<hr />
+<h2 id="6">6. 클라우드 플랫폼별 배포<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<h3 id="_8">하이브리드/온프레미스 배포 고려사항<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>하이브리드와 온프레미스 배포는 조직이 기존 내부 데이터센터(온프레미스)와 퍼블릭 클라우드 환경을 함께 활용하는 배포 모델입니다. 이 모델들은 각기 다른 장점과 고려사항이 존재하며, 주로 다음과 같은 요소들을 고려해야 합니다.</p>
+<ul>
+<li>
+<p><strong>인프라 통합과 관리 복잡성</strong><br />
+  하이브리드 배포는 프라이빗 클라우드(내부 인프라)와 퍼블릭 클라우드를 네트워크로 연동해 사용하므로, 각각의 인프라 관리와 운영 방식이 달라 통합과 관리의 복잡성이 늘어납니다. 네트워크 연결(예: VPN, 전용 회선)과 모니터링, 보안 정책을 일관되게 적용하는 것이 중요합니다.</p>
+</li>
+<li>
+<p><strong>보안 및 규정 준수</strong><br />
+  민감한 데이터는 온프레미스나 프라이빗 클라우드에 보관하며, 덜 민감한 워크로드는 퍼블릭 클라우드에 배포하는 경우가 많습니다. 이는 보안, 데이터 주권, 컴플라이언스 요구 사항을 충족하기 위한 전략입니다. 따라서 데이터 암호화, 접근 제어, 보안 감사가 필수적입니다.</p>
+</li>
+<li>
+<p><strong>비용 효율성</strong><br />
+  초기 비용과 운영 비용 간 균형을 맞추는 것이 중요합니다. 온프레미스는 초기 투자비용과 유지보수 비용이 크지만, 특정 워크로드에 대해 안정적인 운영을 제공합니다. 퍼블릭 클라우드는 유연성과 확장성이 뛰어나지만, 장기적인 비용 최적화가 필요합니다.</p>
+</li>
+<li>
+<p><strong>유연성과 확장성</strong><br />
+  하이브리드 클라우드는 온프레미스 인프라의 한계를 극복하고, 필요에 따라 퍼블릭 클라우드 리소스를 활용해 확장할 수 있어 비즈니스 변화에 민첩하게 대응할 수 있습니다.</p>
+</li>
+<li>
+<p><strong>데이터 및 애플리케이션 이동성</strong><br />
+  서로 다른 환경 간에 데이터와 애플리케이션을 원활하게 이동시키기 위한 지원이 중요합니다. 이는 클라우드간 상호 운용성과 이동성, API 호환성 등을 포함합니다.</p>
+</li>
+<li>
+<p><strong>지속적인 모니터링과 최적화</strong><br />
+  하이브리드 환경은 복잡한 운영 환경을 가지므로, 성능 모니터링, 비용 관리, 보안 상태 점검을 지속적으로 수행하는 체계가 필요합니다.</p>
+</li>
+</ul>
+<p>이처럼 하이브리드/온프레미스 배포는 유연성과 보안을 함께 고려해야 하는 복합적인 환경으로, 조직의 비즈니스 요구사항, 보안 정책, 예산을 면밀히 검토하여 전략적으로 선택하고 관리하는 것이 중요합니다[1][2][5][6].</p>
+<p>출처
+[1] 클라우드 컴퓨팅에는 어떤 유형이 있나요? - Google Cloud <a href="https://cloud.google.com/discover/types-of-cloud-computing?hl=ko">https://cloud.google.com/discover/types-of-cloud-computing?hl=ko</a>
+[2] 클라우드 배포 모델 | 개념 - Couchbase <a href="https://www.couchbase.com/ko/resources/concepts/cloud-deployment-models/">https://www.couchbase.com/ko/resources/concepts/cloud-deployment-models/</a>
+[3] 클라우드 플랫폼 선택 - AWS <a href="https://aws.amazon.com/ko/choosing-a-cloud-platform/">https://aws.amazon.com/ko/choosing-a-cloud-platform/</a>
+[4] 5가지 클라우드 배포 모델:차이점 알아보기 <a href="https://ko.mfgrobots.com/iiot/cloud/1008031200.html">https://ko.mfgrobots.com/iiot/cloud/1008031200.html</a>
+[5] 클라우드 배포 모델이란? 적합한 클라우드 선택 - PayPro Global <a href="https://payproglobal.com/ko/%EB%8B%B5%EB%B3%80/%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EB%B0%B0%ED%8F%AC-%EB%AA%A8%EB%8D%B8%EC%9D%B4%EB%9E%80/">https://payproglobal.com/ko/%EB%8B%B5%EB%B3%80/%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EB%B0%B0%ED%8F%AC-%EB%AA%A8%EB%8D%B8%EC%9D%B4%EB%9E%80/</a>
+[6] SaaS, PaaS, IaaS 간 비교 – 클라우드 컴퓨팅 유형 - AWS <a href="https://aws.amazon.com/ko/types-of-cloud-computing/">https://aws.amazon.com/ko/types-of-cloud-computing/</a>
+[7] 퍼블릭 클라우드 배포 모델이란? 유형 및 예 - PayPro Global <a href="https://payproglobal.com/ko/%EB%8B%B5%EB%B3%80/%ED%8D%BC%EB%B8%94%EB%A6%AD-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EB%B0%B0%ED%8F%AC-%EB%AA%A8%EB%8D%B8%EC%9D%B4%EB%9E%80/">https://payproglobal.com/ko/%EB%8B%B5%EB%B3%80/%ED%8D%BC%EB%B8%94%EB%A6%AD-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EB%B0%B0%ED%8F%AC-%EB%AA%A8%EB%8D%B8%EC%9D%B4%EB%9E%80/</a>
+[8] Google Cloud 배포 아키타입 비교 분석 | Cloud Architecture Center <a href="https://cloud.google.com/architecture/deployment-archetypes/comparison?hl=ko">https://cloud.google.com/architecture/deployment-archetypes/comparison?hl=ko</a>
+[9] 클라우드 컴퓨팅의 유형 - Red Hat <a href="https://www.redhat.com/ko/topics/cloud-computing/public-cloud-vs-private-cloud-and-hybrid-cloud">https://www.redhat.com/ko/topics/cloud-computing/public-cloud-vs-private-cloud-and-hybrid-cloud</a>
+[10] 클라우드 서비스 비교 - SaaS PaaS IaaS 차이 - Elice <a href="https://elice.io/ko/newsroom/saas_paas_iaas">https://elice.io/ko/newsroom/saas_paas_iaas</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
