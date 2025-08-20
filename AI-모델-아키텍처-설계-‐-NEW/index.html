@@ -3617,12 +3617,12 @@ LoRA(Low-Rank Adaptation)는 Huggingface에서 제안한 Parameter-Efficient Fin
 </li>
 </ul>
 <h3 id="simclr"><strong>SimCLR</strong><a class="headerlink" href="#simclr" title="Permanent link">&para;</a></h3>
+<p><img width="826" height="397" alt="simclr-general-architecture" src="https://github.com/user-attachments/assets/504a39a7-b78b-4616-946b-49dfb2bb4124" /></p>
 <p>A Simple Framework for Contrastive Learning of Visual Representations</p>
 <ul>
 <li>이미지 분류</li>
 <li>핵심 아이디어 : 유사한 이미지와 다른 이미지를 생성 후, 유사한 이미지는 feature space에 가깝도록, 다른 이미지는 멀도록 학습</li>
-<li>loss function
-<img alt="image.png" src="attachment:692747ca-88a3-4d55-8e29-1e777abdd761:image.png" /><ul>
+<li>loss function<ul>
 <li>분자: positive sample(유사한샘플)간의 유사도</li>
 <li>분모: negative sample(다른샘플)간의 유사도 </li>
 </ul>
@@ -3630,6 +3630,7 @@ LoRA(Low-Rank Adaptation)는 Huggingface에서 제안한 Parameter-Efficient Fin
 </ul>
 <hr />
 <h3 id="byol"><strong>BYOL</strong><a class="headerlink" href="#byol" title="Permanent link">&para;</a></h3>
+<p><img width="1041" height="613" alt="byol-overview" src="https://github.com/user-attachments/assets/9e6b96db-8c72-41bd-be9a-063acf50b267" /></p>
 <p>Bootstrap your own latent: A new approach to self-supervised Learning</p>
 <ul>
 <li>이미지 분류</li>
@@ -3650,6 +3651,7 @@ LoRA(Low-Rank Adaptation)는 Huggingface에서 제안한 Parameter-Efficient Fin
 </ul>
 <hr />
 <h3 id="maemasked-auto-encoder"><strong>MAE(masked auto encoder)</strong><a class="headerlink" href="#maemasked-auto-encoder" title="Permanent link">&para;</a></h3>
+<p><img width="1308" height="722" alt="1*9Jec3nnOGbWrQ5_SjPf2Ow" src="https://github.com/user-attachments/assets/e71e3a9b-3261-4864-a1c8-502240b06b05" /></p>
 <ul>
 <li>입력 이미지에 랜덤 패치 마스킹→ 픽셀 공간에서 누락된 패치 재구성</li>
 <li>MAE는 비대칭 인코더-디코더 형식<ul>

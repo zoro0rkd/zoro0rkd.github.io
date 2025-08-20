@@ -1428,21 +1428,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. 모델 평가 개요
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. 모델 평가 개요">
-      <ul class="md-nav__list">
-        
           <li class="md-nav__item">
   <a href="#regression" class="md-nav__link">
     <span class="md-ellipsis">
@@ -2944,21 +2929,6 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. 모델 평가 개요
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. 모델 평가 개요">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#regression" class="md-nav__link">
@@ -4538,7 +4508,6 @@ print('평균 점수:', scores.mean())
 | 스팸 분류, 광고 추천       | <strong>Precision</strong>      | 잘못 긍정하면 사용자가 불쾌 (FP ↓)  |
 | 불균형 클래스 문제         | <strong>F1 Score</strong>       | Precision과 Recall 모두 중요 |
 | 전체 모델 평가           | <strong>ROC Curve, AUC</strong> | 임계값 변화에 대한 전체 성향 시각화    |</p>
-<h2 id="5_1">5. 모델 평가 개요<a class="headerlink" href="#5_1" title="Permanent link">&para;</a></h2>
 <h3 id="regression">회귀(Regression) 지표<a class="headerlink" href="#regression" title="Permanent link">&para;</a></h3>
 <p>회귀 문제에서는 실제 연속적인 값을 예측하므로, 예측값과 실제값 간의 오차를 기반으로 모델 성능을 평가합니다. 대표적인 지표들은 다음과 같습니다.</p>
 <table>
@@ -4698,6 +4667,7 @@ print('평균 점수:', scores.mean())
 [9] OpenAI 임베딩으로 유사한 문장 찾기 실습 - velog <a href="https://velog.io/@cha-suyeon/OpenAI-%EC%9E%84%EB%B2%A0%EB%94%A9%EC%9C%BC%EB%A1%9C-%EC%9C%A0%EC%82%AC%ED%95%9C-%EB%AC%B8%EC%9E%A5-%EC%B0%BE%EA%B8%B0-%EC%8B%A4%EC%8A%B5">https://velog.io/@cha-suyeon/OpenAI-%EC%9E%84%EB%B2%A0%EB%94%A9%EC%9C%BC%EB%A1%9C-%EC%9C%A0%EC%82%AC%ED%95%9C-%EB%AC%B8%EC%9E%A5-%EC%B0%BE%EA%B8%B0-%EC%8B%A4%EC%8A%B5</a></p>
 <h2 id="6">6. 모델 평가 심화<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
 <h3 id="confusion-matrix">혼동 행렬(Confusion Matrix) 해석<a class="headerlink" href="#confusion-matrix" title="Permanent link">&para;</a></h3>
+<p><img width="754" height="425" alt="edfa849b-03fb-43d2-aba5-1f53a8884e6f_image5" src="https://github.com/user-attachments/assets/48e387b1-09e5-4845-9e9c-4ca94ed2aa22" /></p>
 <p>혼동 행렬은 분류 모델 성능을 평가하는 데 많이 사용되는 도구로, 모델의 예측값과 실제값 간 관계를 표로 나타냅니다. 보통 다음 4가지 요소로 구성됩니다:</p>
 <ul>
 <li><strong>True Positive (TP)</strong>: 실제 Positive를 정확히 Positive로 예측</li>

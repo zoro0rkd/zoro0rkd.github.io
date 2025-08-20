@@ -921,66 +921,288 @@
 
 <h2 id="1">1. 모델 튜닝 개요<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <ul>
-<li>모델 튜닝의 정의와 필요성</li>
+<li>모델 튜닝의 정의와 필요성<ul>
+<li>하이퍼파라미터 튜닝(Hyperparameter Tuning)은 머신러닝이나 딥러닝 모델의 성능을 최적화하기 위해 사전에 설정하는 매개변수를 조정하는 과정</li>
+<li>튜닝이 필요한 이유<ul>
+<li>성능 최적화 : 과적합(overfitting)이나 언더피팅(underfitting)을 방지</li>
+<li>일반화 능력 향상 : 새로운 데이터에 잘 작동하도록 조정</li>
+<li>효율적인 학습 : 더 빠르게 수렴하고 계산 자원 절약</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>하이퍼파라미터(Hyperparameter)와 파라미터(Parameter) 차이</li>
-<li>(추가) <strong>튜닝 대상 파라미터 우선순위 선정 기준</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>파라미터(Parameter)</th>
+<th>하이퍼파라미터(Hyperparameter)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>정의</td>
+<td>모델이 학습을 통해 자동으로 결정하는 값 (e.g. 가중치, 편향)</td>
+<td>학습 전 수동으로 설정해야 하는 값 (e.g. learning rate, batch size)</td>
+</tr>
+<tr>
+<td>학습 여부</td>
+<td>데이터 기반 학습됨</td>
+<td>수동 또는 자동 탐색 필요</td>
+</tr>
+<tr>
+<td>예시</td>
+<td>신경망의 weight, bias</td>
+<td>optimizer, dropout rate, layer 수, hidden unit 수</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>(추가) <strong>튜닝 대상 파라미터 우선순위 선정 기준</strong><ul>
+<li>모델 성능에 민감한 순으로 조정<ul>
+<li>학습률 (learning rate): 가장 큰 영향력</li>
+<li>모델 복잡도 관련: hidden units, depth, regularization</li>
+<li>데이터 관련: batch size, epoch</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <h2 id="2-hpo-hyperparameter-optimization">2. 하이퍼파라미터 최적화(HPO, Hyperparameter Optimization)<a class="headerlink" href="#2-hpo-hyperparameter-optimization" title="Permanent link">&para;</a></h2>
 <h3 id="21-hpo">2.1 HPO 개요<a class="headerlink" href="#21-hpo" title="Permanent link">&para;</a></h3>
 <ul>
-<li>정의와 목표</li>
-<li>탐색 공간(Search Space) 설정</li>
-<li>목적 함수(Objective Function) 정의</li>
+<li>정의와 목표<ul>
+<li>정의: 최적 성능을 내는 하이퍼파라미터 조합을 자동으로 탐색하는 기법</li>
+<li>목표: 최소한의 계산 비용으로 성능을 극대화하는 하이퍼파라미터 조합 탐색</li>
+</ul>
+</li>
+<li>탐색 공간(Search Space) 설정<ul>
+<li>튜닝할 하이퍼파라미터의 범위 및 타입을 정의<ul>
+<li>범주형 (categorical): optimizer 종류</li>
+<li>정수형 (int): layer 수</li>
+<li>연속형 (float): learning rate</li>
+</ul>
+</li>
+<li>예시</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">from sklearn.model_selection import GridSearchCV
+from sklearn.ensemble import RandomForestClassifier
+
+params = {
+    'n_estimators': [100, 200],
+    'max_depth': [10, 20, None]
+}
+
+grid = GridSearchCV(RandomForestClassifier(), param_grid=params, cv=5)
+grid.fit(X_train, y_train)
+print(grid.best_params_)  # 최적 하이퍼파라미터 출력
+</code></pre>
+<ul>
+<li>목적 함수(Objective Function) 정의<ul>
+<li>입력: 하이퍼파라미터 조합</li>
+<li>출력: 성능 평가 지표 (예: validation accuracy, F1 score)</li>
+<li>예시: val_loss = objective(params)</li>
+</ul>
+</li>
 </ul>
 <h3 id="22-hpo">2.2 HPO 기법<a class="headerlink" href="#22-hpo" title="Permanent link">&para;</a></h3>
 <ul>
-<li>그리드 서치(Grid Search)</li>
-<li>랜덤 서치(Random Search)</li>
-<li>베이지안 최적화(Bayesian Optimization)</li>
-<li>진화 알고리즘(Evolutionary Algorithm)</li>
-<li>Hyperband / ASHA</li>
-<li>(추가) <strong>메타러닝(Meta-Learning) 기반 HPO</strong></li>
-<li>(추가) <strong>Population-Based Training(PBT)</strong>  </li>
+<li>그리드 서치(Grid Search)<ul>
+<li>모든 하이퍼파라미터 조합을 완전 탐색</li>
+<li>단순, 직관적이지만, 계산 비용 매우 큼, 고차원에서는 비효율적</li>
+</ul>
+</li>
+<li>랜덤 서치(Random Search)<ul>
+<li>무작위 조합으로 탐색</li>
+<li>효율적이고 빠름</li>
+</ul>
+</li>
+<li>베이지안 최적화(Bayesian Optimization)<ul>
+<li>이전 탐색 결과를 바탕으로 다음 탐색 포인트를 탐색 vs 활용(Exploration vs Exploitation) 균형으로 선택(대표 라이브러리: Optuna, Hyperopt)</li>
+<li>효율적이지만 구현 복잡</li>
+</ul>
+</li>
+<li><a href="https://jeongchul.tistory.com/845">진화 알고리즘(Evolutionary Algorithm)</a><ul>
+<li>하이퍼파라미터를 유전 연산자로 변형하면서 탐색, 개체군(Population) 기반 탐색</li>
+<li>적합도 함수(fitness)를 기준으로 다음 세대를 구성</li>
+</ul>
+</li>
+<li><a href="https://iyk2h.tistory.com/143">Hyperband / ASHA (Asynchronous Successive Halving Algorithm)</a><ul>
+<li>자원을 적게 할당한 실험에서 성능이 좋은 조합만 다음 라운드로 진행</li>
+<li>효율적인 조기 종료(Early Stopping)를 포함함</li>
+</ul>
+</li>
+<li>(추가) 메타러닝(Meta-Learning) 기반 HPO<ul>
+<li>과거 유사한 문제에서의 튜닝 결과를 학습하여 새로운 문제에 적용</li>
+<li>적은 탐색으로 성능 좋은 하이퍼파라미터 추천</li>
+</ul>
+</li>
+<li>(추가) <a href="https://rahites.tistory.com/354">Population-Based Training(PBT)</a><ul>
+<li>학습 중간에 하이퍼파라미터를 동적으로 조정</li>
+<li>탐색(explore) + 활용(exploit)을 반복</li>
+<li>분산 환경에서 매우 유용함</li>
+</ul>
+</li>
 </ul>
 <h3 id="23-hpo">2.3 HPO 실무 고려사항<a class="headerlink" href="#23-hpo" title="Permanent link">&para;</a></h3>
 <ul>
-<li>계산 자원 관리</li>
-<li>조기 종료(Early Stopping) 전략</li>
-<li>분산/병렬 튜닝</li>
+<li>계산 자원 관리<ul>
+<li>분산/병렬 처리 필수</li>
+<li>GPU/TPU 등 자원에 따른 튜닝 전략 변경 필요</li>
+</ul>
+</li>
+<li>조기 종료(Early Stopping) 전략<ul>
+<li>성능 개선이 없거나 오버피팅이 감지되면 실험 중단</li>
+<li>ASHA, Hyperband에서 핵심 전략</li>
+</ul>
+</li>
+<li>분산/병렬 튜닝<ul>
+<li>여러 실험을 동시에 실행하여 탐색 시간 절약</li>
+<li>Ray Tune, Optuna Multi-node 지원</li>
+</ul>
+</li>
 <li>(추가) <strong>AutoML 플랫폼 비교 (Optuna, Ray Tune, KerasTuner 등)</strong></li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>플랫폼</th>
+<th>특징</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Optuna</td>
+<td>베이지안 기반, pruning/early stopping 잘 지원</td>
+</tr>
+<tr>
+<td>Ray Tune</td>
+<td>분산 튜닝 강력, 다양한 search algorithm 지원</td>
+</tr>
+<tr>
+<td>KerasTuner</td>
+<td>Keras/Tensorflow 통합 용이, 간단한 구현</td>
+</tr>
+<tr>
+<td>Hyperopt</td>
+<td>Tree-structured Parzen Estimator 사용</td>
+</tr>
+<tr>
+<td>Google Vizier</td>
+<td>구글 내부 AutoML 최적화 플랫폼 (비공개)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="3-class-imbalanced">3. 클래스 불균형(Class Imbalanced) 문제 해결<a class="headerlink" href="#3-class-imbalanced" title="Permanent link">&para;</a></h2>
 <h3 id="31">3.1 클래스 불균형 개요<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
 <ul>
-<li>원인과 영향</li>
-<li>불균형 정도 측정 (불균형 비율, Gini Index 등)</li>
+<li>원인<ul>
+<li>자연 발생: 예) 이상 탐지(Anomaly Detection), 사기 탐지(Fraud Detection), 의료 진단</li>
+<li>데이터 수집 편향: 드문 이벤트는 원천적으로 수집이 어려움</li>
+<li>레이블링 비용: 소수 클래스는 수작업 라벨링 비용이 큼</li>
+</ul>
+</li>
+<li>영향<ul>
+<li>모델은 주로 다수 클래스에 집중 → 소수 클래스 재현율(Recall) 급감</li>
+<li>정확도(Accuracy) 중심 평가 시 허위 고성능 착시 발생</li>
+</ul>
+</li>
+<li>불균형 정도 측정 (불균형 비율, Gini Index 등)<ul>
+<li>Imbalance Ratio (IR) : 다수 클래스 수 / 소수 클래스 수</li>
+<li>Gini Index : 불순도 측정 (높을수록 불균형)</li>
+<li>Entropy : 정보 불확실성 기반 불균형 측정</li>
+</ul>
+</li>
 </ul>
 <h3 id="32-data-level">3.2 데이터 수준(Data-level) 접근<a class="headerlink" href="#32-data-level" title="Permanent link">&para;</a></h3>
 <ul>
-<li>오버샘플링(Oversampling, SMOTE)</li>
-<li>언더샘플링(Undersampling)</li>
-<li>데이터 증강(Augmentation)</li>
-<li>(추가) <strong>합성 데이터 생성(GAN 기반)</strong></li>
+<li>오버샘플링(Oversampling, SMOTE)<ul>
+<li>소수 클래스 데이터를 복제하거나 생성하여 균형 조정</li>
+<li>대표 기법: <a href="http://jaylala.tistory.com/entry/%EB%B6%88%EA%B7%A0%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%B2%98%EB%A6%AC-%EC%98%A4%EB%B2%84%EC%83%98%ED%94%8C%EB%A7%81Oversampling-SMOTE">SMOTE (Synthetic Minority Over-sampling Technique)</a><ul>
+<li>k-NN 기반으로 소수 클래스 간 선형 보간을 통해 합성 샘플 생성</li>
+<li>원본 데이터 분포 왜곡 가능</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>언더샘플링 (Undersampling)<ul>
+<li>다수 클래스의 일부 데이터를 제거하여 균형 유지</li>
+<li>정보 손실 및 일반화 성능 저하 위험</li>
+</ul>
+</li>
+<li>데이터 증강 (Augmentation)<ul>
+<li>이미지/텍스트 도메인에서 변형을 가해 데이터 수 증가</li>
+<li>예: 회전, 노이즈 추가, 단어 순서 변경 등</li>
+</ul>
+</li>
+<li>(추가) 합성 데이터 생성 (GAN 기반)<ul>
+<li>GAN을 활용하여 소수 클래스에 대한 실제 같은 데이터 생성</li>
+<li>예: cGAN, CTGAN, Tabular GAN</li>
+<li>이미지, 탭형(tabular) 데이터 모두에 응용 가능</li>
+</ul>
+</li>
 </ul>
 <h3 id="33-algorithm-level">3.3 알고리즘 수준(Algorithm-level) 접근<a class="headerlink" href="#33-algorithm-level" title="Permanent link">&para;</a></h3>
 <ul>
-<li>클래스 가중치(Class Weight) 조정</li>
-<li>비용 민감 학습(Cost-Sensitive Learning)</li>
-<li>앙상블 기법 (Bagging, Boosting 변형)</li>
+<li>클래스 가중치(Class Weight) 조정<ul>
+<li>소수 클래스에 더 높은 손실 가중치 부여</li>
+<li>sklearn 예시: class_weight='balanced'</li>
+<li>대부분의 딥러닝 프레임워크에서도 손실 함수에 적용 가능 (e.g., CrossEntropyLoss(weight=...))</li>
+</ul>
+</li>
+<li>비용 민감 학습(Cost-Sensitive Learning)<ul>
+<li>클래스별 분류 오류 비용을 다르게 설정</li>
+<li>예: 소수 클래스 예측 실패 시 비용 증가</li>
+</ul>
+</li>
+<li><a href="https://data-analysis-science.tistory.com/61">앙상블 기법 (Bagging, Boosting 변형)</a><ul>
+<li>Bagging: 클래스별로 균형 잡힌 서브셋에 모델 학습 (예: Balanced Random Forest)</li>
+<li>Boosting: 오분류된 소수 클래스 샘플에 가중치 강화 (예: AdaBoost, SMOTEBoost, RUSBoost)</li>
+</ul>
+</li>
 </ul>
 <h3 id="34">3.4 평가 단계 고려<a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
 <ul>
 <li>클래스 불균형 상황에서의 적합한 평가 지표</li>
-<li>PR-AUC, F1-score (macro/micro)</li>
-<li>Balanced Accuracy</li>
-<li>(추가) <strong>Threshold Moving 및 Calibration 기법</strong></li>
+<li>F1-score (macro/micro): Precision과 Recall의 조화 평균. macro는 클래스별 평균, micro는 전체 샘플 기준</li>
+<li>PR-AUC: Precision-Recall 곡선 하단 면적. 불균형 상황에서 ROC-AUC보다 더 민감</li>
+<li>Balanced Accuracy: 각 클래스의 recall을 평균한 지표 → imbalance에 민감</li>
+<li>(추가) <strong>Threshold Moving 및 Calibration 기법</strong><ul>
+<li>Threshold Moving: 기본 0.5 결정 경계(threshold)를 조정하여 소수 클래스 탐지 강화<ul>
+<li>예: threshold = 0.3으로 낮춰 recall 증가</li>
+</ul>
+</li>
+<li>Calibration 기법: 모델의 출력 확률을 신뢰 가능한 확률로 변환<ul>
+<li>대표 기법: Platt Scaling, Isotonic Regression</li>
+<li>ROC 커브 아래 면적 최적화 외에도 threshold 선정에 활용</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <h2 id="4">4. 모델 튜닝과 평가 연계<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
 <ul>
 <li>HPO와 모델 평가 지표의 관계</li>
+<li>튜닝 목적 함수(Objective Function)는 반드시 모델의 평가 지표와 연동되어야 함</li>
+<li>회귀: RMSE, MAE 등 → 작을수록 좋음</li>
+<li>분류: F1-score, AUC 등 → 클수록 좋음</li>
+<li>다중 지표 사용 시: 개별 평가 지표를 정규화하여 조합하거나 멀티목적 최적화 사용</li>
 <li>클래스 불균형 상황에서의 HPO 전략</li>
+<li>단순 Accuracy 기반 튜닝은 소수 클래스 무시 위험 → macro F1, PR-AUC, balanced accuracy 등 사용 권장</li>
+<li>SMOTE, class weighting 등과 연동한 HPO 전략 필요</li>
+<li>모델이 소수 클래스를 무시할 수 없도록 loss 가중치나 threshold 조정 포함</li>
 <li>(추가) <strong>멀티목적 최적화(Multi-objective Optimization)</strong></li>
+<li>여러 성능 지표를 동시에 고려 (예: F1-score vs. Inference Time)</li>
+<li>대표 기법: <a href="https://wikidocs.net/253840">Pareto Optimization</a>, NSGA-II</li>
+<li>Optuna 등에서는 optuna.multi_objective 지원</li>
 <li>(추가) <strong>튜닝 과정에서의 과적합 방지 전략</strong></li>
+<li>Validation set 고정 및 Cross-validation 병행</li>
+<li>Early stopping 사용하여 validation loss 증가 시 학습 중단</li>
+<li>HPO에서 튜닝 과정을 로그로 추적하고, test set은 절대 objective로 사용하지 않도록 주의</li>
 </ul>
 <h2 id="5">5. 실무 적용 사례<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
 <ul>
@@ -992,8 +1214,16 @@
 <h2 id="6-mlops">6. 튜닝 자동화와 MLOps<a class="headerlink" href="#6-mlops" title="Permanent link">&para;</a></h2>
 <ul>
 <li>파이프라인 기반 HPO 자동화</li>
+<li>ML 파이프라인 도구 (e.g. Kubeflow, Airflow, Vertex AI)를 사용하여 전체 튜닝 흐름 자동화</li>
+<li>구성 요소: 데이터 로딩 → 전처리 → 모델 학습 + 튜닝 → 성능 기록 → 최적 모델 저장</li>
 <li>MLflow / Weights &amp; Biases를 통한 실험 관리</li>
+<li>MLflow : 실험 로그, 파라미터 관리, 모델 아카이빙, API 배포 연계</li>
+<li>Weights &amp; Biases (wandb) : 대시보드 기반 실험 비교, HPO 스윕 기능, 커스텀 시각화</li>
 <li>(추가) <strong>튜닝-배포-모니터링 연계 자동화</strong></li>
+<li>튜닝 완료된 모델을 자동으로 배포 &amp; 서빙 파이프라인 연계</li>
+<li>Serving 예시: FastAPI + Docker + Kubernetes</li>
+<li>실시간 성능 모니터링 도구 연계: Prometheus, Grafana</li>
+<li>성능 저하 감지 시 자동 재튜닝 트리거 (예: concept drift 대응)</li>
 </ul>
 
 
