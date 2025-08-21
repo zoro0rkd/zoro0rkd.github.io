@@ -1207,7 +1207,57 @@ print(grid.best_params_)  # 최적 하이퍼파라미터 출력
 <h2 id="5">5. 실무 적용 사례<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
 <ul>
 <li>이미지 분류 모델 튜닝 예시</li>
+<li>적용 분야: 의료 이미지 분류, 품질 검사, 일반 이미지 인식 등</li>
+<li>사용 모델: ResNet, EfficientNet, ConvNeXt 등</li>
+<li>튜닝 대상 하이퍼파라미터<ul>
+<li>Optimizer 종류: SGD vs AdamW</li>
+<li>Learning Rate &amp; Scheduler: CosineAnnealing, ReduceLROnPlateau</li>
+<li>Batch Size, Weight Decay</li>
+<li>Data Augmentation 기법: RandomCrop, CutMix, MixUp, AutoAugment</li>
+</ul>
+</li>
+<li>튜닝 기법<ul>
+<li>Optuna + PyTorch Lightning integration</li>
+<li>Early Stopping + Cosine LR Scheduler</li>
+<li>실험 자동화: Weights &amp; Biases (sweep) 또는 MLflow 사용</li>
+</ul>
+</li>
+<li>평가 지표<ul>
+<li>Top-1 Accuracy, Macro-F1, Confusion Matrix 기반 Recall</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">optuna_trial.suggest_float(&quot;lr&quot;, 1e-5, 1e-2, log=True)
+</code></pre>
+<ul>
 <li>텍스트 분류 모델 튜닝 예시</li>
+<li>적용 분야: 감성 분석, 뉴스 카테고리 분류, 고객 문의 자동 분류 등</li>
+<li>사용 모델: BERT, RoBERTa, KoBERT, Electra</li>
+<li>튜닝 대상 하이퍼파라미터<ul>
+<li>Learning rate, Max sequence length</li>
+<li>Warmup steps, Weight decay</li>
+<li>Tokenizer truncation/padding 방식</li>
+</ul>
+</li>
+<li>튜닝 기법<ul>
+<li>Huggingface + Optuna integration</li>
+<li>k-fold CV 기반 tuning</li>
+<li>Trainer API에서 TrainerCallback으로 metric logging</li>
+</ul>
+</li>
+<li>평가 지표<ul>
+<li>Macro-F1, PR-AUC, Weighted Recall</li>
+<li>Validation vs. Test performance gap 체크</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">training_args = TrainingArguments(
+  evaluation_strategy=&quot;epoch&quot;,
+  learning_rate=trial.suggest_float(&quot;lr&quot;, 1e-5, 5e-5),
+  ...
+)
+</code></pre>
+<ul>
 <li>(추가) <strong>대규모 언어 모델(LLM) 튜닝 사례</strong></li>
 <li>(추가) <strong>멀티모달 모델 튜닝 사례</strong></li>
 </ul>
