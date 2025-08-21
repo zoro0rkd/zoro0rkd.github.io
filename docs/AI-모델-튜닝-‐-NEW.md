@@ -169,11 +169,49 @@ print(grid.best_params_)  # 최적 하이퍼파라미터 출력
   - Early stopping 사용하여 validation loss 증가 시 학습 중단
   - HPO에서 튜닝 과정을 로그로 추적하고, test set은 절대 objective로 사용하지 않도록 주의
 
+
 ## 5. 실무 적용 사례
 - 이미지 분류 모델 튜닝 예시
+  - 적용 분야: 의료 이미지 분류, 품질 검사, 일반 이미지 인식 등
+  - 사용 모델: ResNet, EfficientNet, ConvNeXt 등
+  - 튜닝 대상 하이퍼파라미터
+    - Optimizer 종류: SGD vs AdamW
+    - Learning Rate & Scheduler: CosineAnnealing, ReduceLROnPlateau
+    - Batch Size, Weight Decay
+    - Data Augmentation 기법: RandomCrop, CutMix, MixUp, AutoAugment
+  - 튜닝 기법
+    - Optuna + PyTorch Lightning integration
+    - Early Stopping + Cosine LR Scheduler
+    - 실험 자동화: Weights & Biases (sweep) 또는 MLflow 사용
+  - 평가 지표
+    - Top-1 Accuracy, Macro-F1, Confusion Matrix 기반 Recall
+```python
+optuna_trial.suggest_float("lr", 1e-5, 1e-2, log=True)
+```
 - 텍스트 분류 모델 튜닝 예시
+  - 적용 분야: 감성 분석, 뉴스 카테고리 분류, 고객 문의 자동 분류 등
+  - 사용 모델: BERT, RoBERTa, KoBERT, Electra
+  - 튜닝 대상 하이퍼파라미터
+    - Learning rate, Max sequence length
+    - Warmup steps, Weight decay
+    - Tokenizer truncation/padding 방식
+  - 튜닝 기법
+    - Huggingface + Optuna integration
+    - k-fold CV 기반 tuning
+    - Trainer API에서 TrainerCallback으로 metric logging
+  - 평가 지표
+    - Macro-F1, PR-AUC, Weighted Recall
+    - Validation vs. Test performance gap 체크
+```python
+training_args = TrainingArguments(
+  evaluation_strategy="epoch",
+  learning_rate=trial.suggest_float("lr", 1e-5, 5e-5),
+  ...
+)
+```
 - (추가) **대규모 언어 모델(LLM) 튜닝 사례**
 - (추가) **멀티모달 모델 튜닝 사례**
+
 
 ## 6. 튜닝 자동화와 MLOps
 - 파이프라인 기반 HPO 자동화

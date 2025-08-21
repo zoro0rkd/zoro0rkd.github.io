@@ -734,6 +734,9 @@
   4. **F1-score**: Precision과 Recall의 조화 평균
   5. **mAP**(mean Average Precision): 객체 탐지 등에서 클래스별 AP 평균
 
+* confusion matrix
+![img](https://wikidocs.net/images/page/105124/confusion.png)
+
 ### 7.1.1 정확도 (Accuracy)
 - **정의**: 전체 예측 중에서 맞춘 비율.
 - **계산식**:  
