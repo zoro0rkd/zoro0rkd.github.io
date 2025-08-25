@@ -411,6 +411,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. 데이터 불균형 해소 방법
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -685,6 +694,28 @@
   
   
     <li class="md-nav__item">
+      <a href="../%EC%A3%BC%EC%9A%94-AI-%EA%B8%B0%EC%88%A0-%ED%8A%B8%EB%9E%9C%EB%93%9C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    주요 AI 기술 트랜드
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../%EC%9C%A0%EC%9A%A9%ED%95%9C-%EC%82%AC%EC%9D%B4%ED%8A%B8/" class="md-nav__link">
         
   
@@ -805,6 +836,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. 데이터 불균형 해소 방법
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -843,7 +883,7 @@
 <ul>
 <li>이상치 정의 및 영향</li>
 <li>이상치 탐지 방법</li>
-<li><strong>IQR</strong>: Q1(25%), Q3(75%) 기준, IQR = Q3 - Q1</li>
+<li><strong>IQR</strong>: "IQR = Q3(75%) - Q1(25%)" 를 기준으로 IQR-1.5Q1이하와 IQR+1.5Q3을 보통 이상치로 간주</li>
 <li><strong>z-score</strong>: (측정값 - 평균) / 표준편차</li>
 <li><strong>Isolation Forest</strong>: 무작위 분할로 빠르게 격리되는 포인트를 이상치로 판단</li>
 <li><strong>One-Class SVM</strong>: 정상 데이터를 둘러싼 경계 형성, 그 밖의 점들을 이상치로 간주</li>
@@ -873,7 +913,7 @@
   X_scaled = scaler.fit_transform(X)</code></li>
 <li>스케일링 필요성</li>
 <li>(추가) <strong>로버스트 스케일링(Robust Scaling)</strong> — 이상치에 강한 스케일링 기법</li>
-<li><strong>정규화(Regularization)</strong>: 과적합 방지</li>
+<li><strong>정규화(Regularization)</strong>: AI모델의 과적합 방지용이고 데이터 정제는 아님.</li>
 <li>L1 (Lasso): 불필요한 특성의 가중치를 0으로 설정</li>
 <li>L2 (Ridge): 큰 가중치에 패널티 부여</li>
 <li>Dropout: 일부 뉴런을 랜덤하게 비활성화</li>
@@ -975,6 +1015,42 @@
 <li>Scikit-learn <code>Pipeline</code></li>
 <li>Airflow, Prefect</li>
 </ul>
+<h2 id="10">10. 데이터 불균형 해소 방법<a class="headerlink" href="#10" title="Permanent link">&para;</a></h2>
+<p>데이터 불균형을 해소하는 방법은 크게 데이터 재샘플링, 알고리즘 수준 접근, 그리고 평가 지표 변경 세 가지로 나눌 수 있습니다.</p>
+<ul>
+<li>재샘플링 방법 (Resampling) : 데이터의 클래스 비율을 직접 조정하는 가장 일반적인 방법입니다.<ul>
+<li>오버 샘플링 : SMOTE등의 방법으로 소수 클래스의 데이터 증강하는 방식 등으로 데이터를 추가 확보하는 방법입니다.</li>
+<li>언더 샘플링 : 다수 샘플의 데이터수를 삭제하는 방법으로 정확도 하락 가능성으로 신중한 적용이 필요합니다.</li>
+</ul>
+</li>
+<li>알고리즘 수준 접근 : 데이터를 건드리지 않고, 모델의 학습 방식 자체를 조정합니다.<ul>
+<li>비용 민감 학습 (Cost-sensitive Learning): 모델이 소수 클래스를 잘못 예측했을 때 더 큰 벌칙(cost)을 부여합니다.</li>
+<li>앙상블 기법 (Ensemble Methods): 여러 개의 모델을 결합하여 예측 성능을 높이는 방법으로 AdaBoost와 같은 부스팅(Boosting) 알고리즘은 소수 클래스에 대한 예측 오류에 더 집중하여 모델을 반복적으로 개선합니다.</li>
+</ul>
+</li>
+<li>평가 지표 변경 : 정밀도(Precision)과 재현율의 중요도를 조정하여 소스 클래스 예측을 강화하는 방식입니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>실제 Positive</th>
+<th>실제 Negative</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>예측 Positive</strong></td>
+<td>True Positive (TP)</td>
+<td>False Positive (FP)</td>
+</tr>
+<tr>
+<td><strong>예측 Negative</strong></td>
+<td>False Negative (FN)</td>
+<td>True Negative (TN)</td>
+</tr>
+</tbody>
+</table>
 
 
 
