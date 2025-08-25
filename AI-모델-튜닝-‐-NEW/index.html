@@ -770,6 +770,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FSDL2022/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FSDL2022
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -941,7 +963,7 @@
 
   <h1>AI 모델 튜닝</h1>
 
-<h2 id="1">1. 모델 튜닝 개요<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<div><h2 id="1">1. 모델 튜닝 개요<a class="headerlink" href="#1" title="Permanent link">¶</a></h2>
 <ul>
 <li>모델 튜닝의 정의와 필요성<ul>
 <li>하이퍼파라미터 튜닝(Hyperparameter Tuning)은 머신러닝이나 딥러닝 모델의 성능을 최적화하기 위해 사전에 설정하는 매개변수를 조정하는 과정</li>
@@ -992,8 +1014,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="2-hpo-hyperparameter-optimization">2. 하이퍼파라미터 최적화(HPO, Hyperparameter Optimization)<a class="headerlink" href="#2-hpo-hyperparameter-optimization" title="Permanent link">&para;</a></h2>
-<h3 id="21-hpo">2.1 HPO 개요<a class="headerlink" href="#21-hpo" title="Permanent link">&para;</a></h3>
+<h2 id="2-hpo-hyperparameter-optimization">2. 하이퍼파라미터 최적화(HPO, Hyperparameter Optimization)<a class="headerlink" href="#2-hpo-hyperparameter-optimization" title="Permanent link">¶</a></h2>
+<h3 id="21-hpo">2.1 HPO 개요<a class="headerlink" href="#21-hpo" title="Permanent link">¶</a></h3>
 <ul>
 <li>정의와 목표<ul>
 <li>정의: 최적 성능을 내는 하이퍼파라미터 조합을 자동으로 탐색하는 기법</li>
@@ -1031,7 +1053,7 @@ print(grid.best_params_)  # 최적 하이퍼파라미터 출력
 </ul>
 </li>
 </ul>
-<h3 id="22-hpo">2.2 HPO 기법<a class="headerlink" href="#22-hpo" title="Permanent link">&para;</a></h3>
+<h3 id="22-hpo">2.2 HPO 기법<a class="headerlink" href="#22-hpo" title="Permanent link">¶</a></h3>
 <table>
 <thead>
 <tr>
@@ -1232,7 +1254,7 @@ print(grid.best_params_)  # 최적 하이퍼파라미터 출력
 </ul>
 </li>
 </ul>
-<h3 id="23-hpo">2.3 HPO 실무 고려사항<a class="headerlink" href="#23-hpo" title="Permanent link">&para;</a></h3>
+<h3 id="23-hpo">2.3 HPO 실무 고려사항<a class="headerlink" href="#23-hpo" title="Permanent link">¶</a></h3>
 <ul>
 <li>계산 자원 관리<ul>
 <li>분산/병렬 처리 필수</li>
@@ -1313,8 +1335,8 @@ print(grid.best_params_)  # 최적 하이퍼파라미터 출력
 </tr>
 </tbody>
 </table>
-<h2 id="3-class-imbalanced">3. 클래스 불균형(Class Imbalanced) 문제 해결<a class="headerlink" href="#3-class-imbalanced" title="Permanent link">&para;</a></h2>
-<h3 id="31">3.1 클래스 불균형 개요<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<h2 id="3-class-imbalanced">3. 클래스 불균형(Class Imbalanced) 문제 해결<a class="headerlink" href="#3-class-imbalanced" title="Permanent link">¶</a></h2>
+<h3 id="31">3.1 클래스 불균형 개요<a class="headerlink" href="#31" title="Permanent link">¶</a></h3>
 <ul>
 <li>원인<ul>
 <li>자연 발생: 예) 이상 탐지(Anomaly Detection), 사기 탐지(Fraud Detection), 의료 진단</li>
@@ -1328,28 +1350,28 @@ print(grid.best_params_)  # 최적 하이퍼파라미터 출력
 </ul>
 </li>
 <li>불균형 정도 측정 (불균형 비율, Gini Index 등)<ul>
-<li><strong>Imbalance Ratio (IR)</strong> :<br />
-  다수 클래스 샘플 수를 소수 클래스 샘플 수로 나눈 비율. 값이 클수록 불균형 심함.<br />
+<li><strong>Imbalance Ratio (IR)</strong> :<br>
+  다수 클래스 샘플 수를 소수 클래스 샘플 수로 나눈 비율. 값이 클수록 불균형 심함.<br>
   예: 다수 900, 소수 100 → IR = 9:1</li>
-<li><strong>Gini Index</strong> :<br />
-  불순도를 나타내는 지표. 클래스 분포가 한쪽으로 치우칠수록 값이 커짐.<br />
-  공식: <code>Gini = 1 - Σ(p_i^2)</code> (p_i = 클래스 i의 비율)<br />
+<li><strong>Gini Index</strong> :<br>
+  불순도를 나타내는 지표. 클래스 분포가 한쪽으로 치우칠수록 값이 커짐.<br>
+  공식: <code>Gini = 1 - Σ(p_i^2)</code> (p_i = 클래스 i의 비율)<br>
   → 균등할수록 낮고, 불균형할수록 높음.</li>
-<li><strong>Entropy</strong> :<br />
-  데이터의 불확실성을 측정. 불균형할수록 특정 클래스 확률이 크기 때문에 엔트로피 값이 낮아짐.<br />
-  공식: <code>Entropy = - Σ(p_i * log2(p_i))</code><br />
+<li><strong>Entropy</strong> :<br>
+  데이터의 불확실성을 측정. 불균형할수록 특정 클래스 확률이 크기 때문에 엔트로피 값이 낮아짐.<br>
+  공식: <code>Entropy = - Σ(p_i * log2(p_i))</code><br>
   → 값이 높을수록 분포가 균등, 낮을수록 불균형.</li>
 </ul>
 </li>
 </ul>
-<h3 id="32-data-level">3.2 데이터 수준(Data-level) 접근<a class="headerlink" href="#32-data-level" title="Permanent link">&para;</a></h3>
+<h3 id="32-data-level">3.2 데이터 수준(Data-level) 접근<a class="headerlink" href="#32-data-level" title="Permanent link">¶</a></h3>
 <ul>
 <li>
 <p>오버샘플링(Oversampling, SMOTE)</p>
 <ul>
 <li>소수 클래스 데이터를 복제하거나 생성하여 균형 조정</li>
 <li>대표 기법: <a href="http://jaylala.tistory.com/entry/%EB%B6%88%EA%B7%A0%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%B2%98%EB%A6%AC-%EC%98%A4%EB%B2%84%EC%83%98%ED%94%8C%EB%A7%81Oversampling-SMOTE">SMOTE (Synthetic Minority Over-sampling Technique)</a>
-    <img alt="image" src="https://github.com/user-attachments/assets/a35de7d4-1427-49df-b9a6-aab0f4f96e92" /><ul>
+    <img alt="image" src="https://github.com/user-attachments/assets/a35de7d4-1427-49df-b9a6-aab0f4f96e92"><ul>
 <li><strong>원리</strong>: 소수 클래스 샘플과 그 주변의 k-최근접 이웃(k-NN)을 선택 → 선형 보간(interpolation)하여 합성 샘플 생성  </li>
 <li><strong>장점</strong>: 데이터 다양성 확보, 단순 중복보다 일반화 성능 개선  </li>
 <li><strong>단점</strong>: 경계 근처에 불필요한 샘플 생성 가능 → 클래스 간 경계 왜곡 위험  </li>
@@ -1365,11 +1387,11 @@ print(grid.best_params_)  # 최적 하이퍼파라미터 출력
 <li>단순 무작위 제거(Random Undersampling)는 정보 손실이 크고, 일반화 성능 저하 가능  </li>
 <li>대표 기법:  <ul>
 <li>NearMiss: 다수 클래스 중 소수 클래스와 가까운 샘플만 선택
-  <img alt="image" src="https://github.com/user-attachments/assets/fc51a06a-1b66-4497-bb40-bad642df7cf4" /></li>
-<li>Tomek Links: 클래스 경계에 위치한 불필요한 다수 클래스 샘플 제거<br />
-  <img alt="image" src="https://github.com/user-attachments/assets/e3e4bdb8-d15e-4ab4-9714-256dd111a1c2" /></li>
+  <img alt="image" src="https://github.com/user-attachments/assets/fc51a06a-1b66-4497-bb40-bad642df7cf4"></li>
+<li>Tomek Links: 클래스 경계에 위치한 불필요한 다수 클래스 샘플 제거<br>
+  <img alt="image" src="https://github.com/user-attachments/assets/e3e4bdb8-d15e-4ab4-9714-256dd111a1c2"></li>
 <li>Cluster Centroids: 다수 클래스를 클러스터링 → 중심점(centroid)만 대표로 사용 
-  <img alt="image" src="https://github.com/user-attachments/assets/ac1515f5-92b6-42a3-979a-af784a6d183d" /></li>
+  <img alt="image" src="https://github.com/user-attachments/assets/ac1515f5-92b6-42a3-979a-af784a6d183d"></li>
 </ul>
 </li>
 </ul>
@@ -1398,7 +1420,7 @@ print(grid.best_params_)  # 최적 하이퍼파라미터 출력
 </ul>
 </li>
 </ul>
-<h3 id="33-algorithm-level">3.3 알고리즘 수준(Algorithm-level) 접근<a class="headerlink" href="#33-algorithm-level" title="Permanent link">&para;</a></h3>
+<h3 id="33-algorithm-level">3.3 알고리즘 수준(Algorithm-level) 접근<a class="headerlink" href="#33-algorithm-level" title="Permanent link">¶</a></h3>
 <ul>
 <li><strong>클래스 가중치(Class Weight) 조정</strong>  <ul>
 <li>소수 클래스 샘플에 더 높은 손실 가중치를 부여하여 학습 시 중요도를 강화  </li>
@@ -1421,7 +1443,7 @@ print(grid.best_params_)  # 최적 하이퍼파라미터 출력
 </ul>
 </li>
 <li><a href="https://data-analysis-science.tistory.com/61">앙상블 기법 (Bagging, Boosting 변형)</a>
-   <img alt="image" src="https://github.com/user-attachments/assets/38ffc715-b6e7-4766-8077-a5f8ef6227ef" /><ul>
+   <img alt="image" src="https://github.com/user-attachments/assets/38ffc715-b6e7-4766-8077-a5f8ef6227ef"><ul>
 <li>여러 약한 학습기를 결합하여 성능 향상  </li>
 <li>클래스 불균형 상황에 맞게 <strong>Bagging/Boosting 알고리즘을 변형</strong>하여 활용  </li>
 <li><strong>Bagging 기반 기법</strong>  <ul>
@@ -1448,7 +1470,7 @@ print(grid.best_params_)  # 최적 하이퍼파라미터 출력
 </ul>
 </li>
 </ul>
-<h3 id="34">3.4 평가 단계 고려<a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
+<h3 id="34">3.4 평가 단계 고려<a class="headerlink" href="#34" title="Permanent link">¶</a></h3>
 <ul>
 <li>
 <p>클래스 불균형 상황에서의 적합한 평가 지표</p>
@@ -1469,9 +1491,9 @@ print(grid.best_params_)  # 최적 하이퍼파라미터 출력
 <li>ROC-AUC: FPR 낮을수록, TPR 높을수록(곡선이 왼쪽, 위로 향할수록) 좋은 모델</li>
 <li>PR-AUC: Recall 높을수록, Precision 높을수록(곡선이 오른쪽, 위로 향할수록) 좋은 모델</li>
 <li>확률 분포 히스토그램 vs. 확률 밀도 분포
-    <img alt="image" src="https://github.com/user-attachments/assets/b803c9e2-621f-4c2f-a0f1-f53c58667ddb" /></li>
+    <img alt="image" src="https://github.com/user-attachments/assets/b803c9e2-621f-4c2f-a0f1-f53c58667ddb"></li>
 <li>ROC curve vs. PR curve
-    <img alt="image" src="https://github.com/user-attachments/assets/7f56b293-28a9-4cff-b230-95f2c03390fd" /></li>
+    <img alt="image" src="https://github.com/user-attachments/assets/7f56b293-28a9-4cff-b230-95f2c03390fd"></li>
 </ul>
 </li>
 </ul>
@@ -1516,14 +1538,14 @@ print(grid.best_params_)  # 최적 하이퍼파라미터 출력
 </ul>
 </li>
 </ul>
-<h2 id="4">4. 모델 튜닝과 평가 연계<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h2 id="4">4. 모델 튜닝과 평가 연계<a class="headerlink" href="#4" title="Permanent link">¶</a></h2>
 <ul>
 <li>HPO와 모델 평가 지표의 관계</li>
 <li>튜닝 목적 함수(Objective Function)는 반드시 모델의 평가 지표와 연동되어야 함</li>
 <li>회귀: RMSE, MAE 등 → 작을수록 좋음</li>
 <li>분류: F1-score, AUC 등 → 클수록 좋음</li>
 <li>다중 지표 사용 시
-        - 개별 평가 지표를 정규화하여 조합 (예: weighted sum)<br />
+        - 개별 평가 지표를 정규화하여 조합 (예: weighted sum)<br>
         - 혹은 멀티목적 최적화(Multi-objective Optimization) 적용  </li>
 <li>클래스 불균형 상황에서의 HPO 전략<ul>
 <li>단순 Accuracy 기반 튜닝은 소수 클래스 무시 위험  </li>
@@ -1563,7 +1585,7 @@ print(grid.best_params_)  # 최적 하이퍼파라미터 출력
 <li>Early stopping 사용하여 validation loss 증가 시 학습 중단</li>
 <li>HPO에서 튜닝 과정을 로그로 추적하고, test set은 절대 objective로 사용하지 않도록 주의</li>
 </ul>
-<h2 id="5">5. 실무 적용 사례<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<h2 id="5">5. 실무 적용 사례<a class="headerlink" href="#5" title="Permanent link">¶</a></h2>
 <ul>
 <li>이미지 분류 모델 튜닝 예시</li>
 <li>적용 분야: 의료 이미지 분류, 품질 검사, 일반 이미지 인식 등</li>
@@ -1586,7 +1608,7 @@ print(grid.best_params_)  # 최적 하이퍼파라미터 출력
 </ul>
 </li>
 </ul>
-<pre><code class="language-python">optuna_trial.suggest_float(&quot;lr&quot;, 1e-5, 1e-2, log=True)
+<pre><code class="language-python">optuna_trial.suggest_float("lr", 1e-5, 1e-2, log=True)
 </code></pre>
 <ul>
 <li>텍스트 분류 모델 튜닝 예시</li>
@@ -1611,8 +1633,8 @@ print(grid.best_params_)  # 최적 하이퍼파라미터 출력
 </li>
 </ul>
 <pre><code class="language-python">training_args = TrainingArguments(
-  evaluation_strategy=&quot;epoch&quot;,
-  learning_rate=trial.suggest_float(&quot;lr&quot;, 1e-5, 5e-5),
+  evaluation_strategy="epoch",
+  learning_rate=trial.suggest_float("lr", 1e-5, 5e-5),
   ...
 )
 </code></pre>
@@ -1661,7 +1683,7 @@ print(grid.best_params_)  # 최적 하이퍼파라미터 출력
 </ul>
 </li>
 </ul>
-<h2 id="6-mlops">6. 튜닝 자동화와 MLOps<a class="headerlink" href="#6-mlops" title="Permanent link">&para;</a></h2>
+<h2 id="6-mlops">6. 튜닝 자동화와 MLOps<a class="headerlink" href="#6-mlops" title="Permanent link">¶</a></h2>
 <ul>
 <li>파이프라인 기반 HPO 자동화</li>
 <li>ML 파이프라인 도구 (e.g. Kubeflow, Airflow, Vertex AI)를 사용하여 전체 튜닝 흐름 자동화</li>
@@ -1674,7 +1696,7 @@ print(grid.best_params_)  # 최적 하이퍼파라미터 출력
 <li>Serving 예시: FastAPI + Docker + Kubernetes</li>
 <li>실시간 성능 모니터링 도구 연계: Prometheus, Grafana</li>
 <li>성능 저하 감지 시 자동 재튜닝 트리거 (예: concept drift 대응)</li>
-</ul>
+</ul></div>
 
 
 

@@ -731,6 +731,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FSDL2022/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FSDL2022
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -863,14 +885,14 @@
 
   <h1>데이터 정제</h1>
 
-<h2 id="1">1. 데이터 정제 개요<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<div><h2 id="1">1. 데이터 정제 개요<a class="headerlink" href="#1" title="Permanent link">¶</a></h2>
 <ul>
 <li>데이터 정제의 정의
  AI 모델이 학습하기 전에, 오류가 있거나 불완전한 데이터를 찾아내고 수정하거나 삭제하는 일련의 과정을 말합니다.</li>
 <li>정제의 필요성</li>
 <li>AI 모델 성능과 데이터 품질의 관계</li>
 </ul>
-<h2 id="2">2. 결측치 처리<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h2 id="2">2. 결측치 처리<a class="headerlink" href="#2" title="Permanent link">¶</a></h2>
 <ul>
 <li>결측치 탐지 (<code>isnull()</code>, <code>notnull()</code>)</li>
 <li>결측치 제거 (<code>dropna()</code>)</li>
@@ -879,7 +901,7 @@
 <li>KNN Imputation</li>
 <li>MICE(Multiple Imputation by Chained Equations)</li>
 </ul>
-<h2 id="3">3. 이상치 처리<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h2 id="3">3. 이상치 처리<a class="headerlink" href="#3" title="Permanent link">¶</a></h2>
 <ul>
 <li>이상치 정의 및 영향</li>
 <li>이상치 탐지 방법</li>
@@ -893,7 +915,7 @@
 <li>이상치 처리 방법 (제거, 변환, 대체)</li>
 <li>(추가) <strong>도메인 지식 기반 규칙 설정</strong></li>
 </ul>
-<h2 id="4">4. 데이터 변환<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h2 id="4">4. 데이터 변환<a class="headerlink" href="#4" title="Permanent link">¶</a></h2>
 <ul>
 <li><strong>데이터 정규화(Normalization)</strong></li>
 <li><strong>Min-Max 정규화</strong>: X_norm = (X - X_min) / (X_max - X_min)</li>
@@ -919,7 +941,7 @@
 <li>Dropout: 일부 뉴런을 랜덤하게 비활성화</li>
 <li>Early Stopping: 검증 성능 개선 없을 때 학습 조기 종료</li>
 </ul>
-<h2 id="5-feature">5. 특성(Feature) 처리<a class="headerlink" href="#5-feature" title="Permanent link">&para;</a></h2>
+<h2 id="5-feature">5. 특성(Feature) 처리<a class="headerlink" href="#5-feature" title="Permanent link">¶</a></h2>
 <ul>
 <li>범주형 데이터 인코딩</li>
 <li>One-Hot Encoding</li>
@@ -928,7 +950,7 @@
 <li>로그 변환, 제곱근 변환</li>
 <li>데이터 타입 변환 (<code>astype()</code>)</li>
 </ul>
-<h2 id="6">6. 문자열 데이터 정제<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<h2 id="6">6. 문자열 데이터 정제<a class="headerlink" href="#6" title="Permanent link">¶</a></h2>
 <ul>
 <li>공백 제거 (<code>strip()</code>)</li>
 <li>대소문자 변환</li>
@@ -996,18 +1018,18 @@
 </ul>
 </li>
 </ul>
-<h2 id="7">7. 중복 데이터 처리<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<h2 id="7">7. 중복 데이터 처리<a class="headerlink" href="#7" title="Permanent link">¶</a></h2>
 <ul>
 <li>중복 탐지 (<code>duplicated()</code>)</li>
 <li>중복 제거 (<code>drop_duplicates()</code>)</li>
 </ul>
-<h2 id="8">8. 데이터 품질 점검 및 시각화<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<h2 id="8">8. 데이터 품질 점검 및 시각화<a class="headerlink" href="#8" title="Permanent link">¶</a></h2>
 <ul>
 <li>결측치 및 이상치 시각화</li>
 <li>분포 확인</li>
 <li>(추가) <strong>EDA(Exploratory Data Analysis)와 연계한 정제</strong></li>
 </ul>
-<h2 id="9">9. 데이터 정제 자동화 (추가)<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
+<h2 id="9">9. 데이터 정제 자동화 (추가)<a class="headerlink" href="#9" title="Permanent link">¶</a></h2>
 <ul>
 <li>Pandas 파이프라인 구성</li>
 <li>함수 기반 전처리 (<code>apply()</code>, <code>map()</code>, <code>lambda</code>)</li>
@@ -1015,7 +1037,7 @@
 <li>Scikit-learn <code>Pipeline</code></li>
 <li>Airflow, Prefect</li>
 </ul>
-<h2 id="10">10. 데이터 불균형 해소 방법<a class="headerlink" href="#10" title="Permanent link">&para;</a></h2>
+<h2 id="10">10. 데이터 불균형 해소 방법<a class="headerlink" href="#10" title="Permanent link">¶</a></h2>
 <p>데이터 불균형을 해소하는 방법은 크게 데이터 재샘플링, 알고리즘 수준 접근, 그리고 평가 지표 변경 세 가지로 나눌 수 있습니다.</p>
 <ul>
 <li>재샘플링 방법 (Resampling) : 데이터의 클래스 비율을 직접 조정하는 가장 일반적인 방법입니다.<ul>
@@ -1050,7 +1072,7 @@
 <td>True Negative (TN)</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 
 
 

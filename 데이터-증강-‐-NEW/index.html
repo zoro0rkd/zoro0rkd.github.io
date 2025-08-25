@@ -672,6 +672,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FSDL2022/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FSDL2022
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -741,8 +763,8 @@
 
 
 
-<h1 id="1">1. 데이터 증강 개요<a class="headerlink" href="#1" title="Permanent link">&para;</a></h1>
-<h2 id="11">1.1 데이터 증강의 정의<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
+<div><h1 id="1">1. 데이터 증강 개요<a class="headerlink" href="#1" title="Permanent link">¶</a></h1>
+<h2 id="11">1.1 데이터 증강의 정의<a class="headerlink" href="#11" title="Permanent link">¶</a></h2>
 <ul>
 <li>기존 데이터를 다양한 변형을 통해 새로운 학습 데이터로 생성하는 기법</li>
 <li>원본 의미를 유지하면서 입력 형태를 다양화하여 모델이 더 많은 패턴 학습 가능</li>
@@ -751,8 +773,8 @@
 <li>텍스트: 단어 순서 변경, 동의어 치환</li>
 <li>오디오: 속도 변경, 잡음 추가</li>
 </ul>
-<hr />
-<h2 id="12">1.2 증강의 필요성<a class="headerlink" href="#12" title="Permanent link">&para;</a></h2>
+<hr>
+<h2 id="12">1.2 증강의 필요성<a class="headerlink" href="#12" title="Permanent link">¶</a></h2>
 <ul>
 <li><strong>데이터 부족 해결</strong></li>
 <li>대규모 데이터 수집이 어려운 경우 기존 데이터 변형으로 학습량 증가</li>
@@ -764,8 +786,8 @@
 <li>다양한 입력 변형 학습으로 새로운 환경·노이즈 데이터에도 대응 가능</li>
 <li>예: 비 오는 날 촬영된 사진에서도 얼굴 인식 정확도 유지</li>
 </ul>
-<hr />
-<h2 id="13">1.3 데이터 증강 시 주의사항<a class="headerlink" href="#13" title="Permanent link">&para;</a></h2>
+<hr>
+<h2 id="13">1.3 데이터 증강 시 주의사항<a class="headerlink" href="#13" title="Permanent link">¶</a></h2>
 <ul>
 <li><strong>라벨 무결성 유지</strong></li>
 <li>증강 과정에서 데이터 의미가 변질되지 않도록 함</li>
@@ -779,11 +801,11 @@
 <li>분야 특성과 문제 특성을 고려하여 증강 기법 선택</li>
 <li>예: 자율주행에서는 좌우 반전 가능하지만, 교통 표지판 방향이 중요한 경우 주의</li>
 </ul>
-<h1 id="2">2. 이미지 데이터 증강<a class="headerlink" href="#2" title="Permanent link">&para;</a></h1>
-<p>이미지 데이터 증강(Image Data Augmentation)은 <strong>원본 데이터를 인위적으로 변형·가공</strong>하여 데이터셋의 다양성과 크기를 늘리는 기법<br />
+<h1 id="2">2. 이미지 데이터 증강<a class="headerlink" href="#2" title="Permanent link">¶</a></h1>
+<p>이미지 데이터 증강(Image Data Augmentation)은 <strong>원본 데이터를 인위적으로 변형·가공</strong>하여 데이터셋의 다양성과 크기를 늘리는 기법<br>
 이를 통해 모델의 <strong>일반화 성능을 향상</strong>시키고, <strong>과적합(overfitting)</strong>을 방지하며, <strong>클래스 불균형 문제</strong>를 완화할 수 있음</p>
-<hr />
-<h2 id="21-geometric-transformations">2.1 기하학적 변환 (Geometric Transformations)<a class="headerlink" href="#21-geometric-transformations" title="Permanent link">&para;</a></h2>
+<hr>
+<h2 id="21-geometric-transformations">2.1 기하학적 변환 (Geometric Transformations)<a class="headerlink" href="#21-geometric-transformations" title="Permanent link">¶</a></h2>
 <ul>
 <li><strong>회전(Rotation)</strong>  </li>
 <li>이미지를 일정 각도 범위 내에서 회전시킴 (예: -15° ~ +15°)  </li>
@@ -791,7 +813,7 @@
 <li>과도한 회전(90° 이상)은 객체 형태 왜곡 및 의미 손실 가능성 있음  </li>
 <li>예: 도로 표지판, 얼굴 인식, 제품 사진 등</li>
 </ul>
-<p><img alt="img" src="https://docs.omniverse.nvidia.com/extensions/latest/_images/replicator_augmentation_rotate.gif" /></p>
+<p><img alt="img" src="https://docs.omniverse.nvidia.com/extensions/latest/_images/replicator_augmentation_rotate.gif"></p>
 <ul>
 <li><strong>이동(Translation)</strong>  </li>
 <li>이미지를 X축 또는 Y축 방향으로 평행 이동  </li>
@@ -826,62 +848,62 @@
 <li>랜덤 크롭(Random Crop) 또는 중심 크롭(Center Crop) 방식 사용</li>
 <li>예: CCTV 영상에서 사람 일부가 가려진 경우 대응</li>
 </ul>
-<hr />
-<h2 id="22-color-illumination-transformations">2.2 색상·명암 변환 (Color &amp; Illumination Transformations)<a class="headerlink" href="#22-color-illumination-transformations" title="Permanent link">&para;</a></h2>
+<hr>
+<h2 id="22-color-illumination-transformations">2.2 색상·명암 변환 (Color &amp; Illumination Transformations)<a class="headerlink" href="#22-color-illumination-transformations" title="Permanent link">¶</a></h2>
 <ul>
 <li><strong>밝기(Brightness) 조절</strong></li>
 <li>이미지 전체의 광도 값을 일정 비율로 증가 또는 감소</li>
 <li>다양한 조명 조건(낮/밤, 실내/실외) 시뮬레이션 가능</li>
 <li>카메라 노출 차이, 흐린 날씨, 조명 부족 등의 상황을 학습 가능</li>
-<li>예: 낮 장면을 어둡게 하여 야간 장면처럼 변환<br />
+<li>예: 낮 장면을 어둡게 하여 야간 장면처럼 변환<br>
        너무 어두운 CCTV 영상을 밝게 조정해 학습 데이터 확보</li>
 </ul>
-<p><img alt="img" src="https://docs.omniverse.nvidia.com/extensions/latest/_images/replicator_augmentation_brightness.gif" /></p>
+<p><img alt="img" src="https://docs.omniverse.nvidia.com/extensions/latest/_images/replicator_augmentation_brightness.gif"></p>
 <ul>
 <li><strong>대비(Contrast) 조절</strong></li>
 <li>밝은 영역과 어두운 영역의 차이를 조절</li>
 <li><strong>낮은 대비</strong> → 흐릿한 환경(안개, 먼지, 저화질 영상) 시뮬레이션  </li>
 <li><strong>높은 대비</strong> → 강한 빛과 그림자가 공존하는 환경 재현</li>
-<li>예: 안개 낀 도로 상황을 대비 낮춤으로 재현<br />
+<li>예: 안개 낀 도로 상황을 대비 낮춤으로 재현<br>
        건물 그림자가 강하게 드리운 오후 장면 대비를 높여 학습</li>
 </ul>
-<p><img alt="img" src="https://docs.omniverse.nvidia.com/extensions/latest/_images/replicator_augmentation_contrast.gif" /></p>
+<p><img alt="img" src="https://docs.omniverse.nvidia.com/extensions/latest/_images/replicator_augmentation_contrast.gif"></p>
 <ul>
 <li><strong>색상(Hue) &amp; 채도(Saturation) 변경</strong></li>
 <li>색상(Hue): 이미지의 색조를 일정 각도로 회전시켜 색감을 변환</li>
 <li>채도(Saturation): 색의 선명함을 조절 (낮으면 흑백에 가까워지고, 높으면 더 강렬한 색감)</li>
 <li>카메라 화이트밸런스 차이, 계절별 색감 변화, 필터 효과 등을 반영</li>
-<li>예: 녹색 식물 사진의 색조를 변경해 가을 단풍색으로 변환<br />
+<li>예: 녹색 식물 사진의 색조를 변경해 가을 단풍색으로 변환<br>
       실내 사진의 채도를 낮춰 CCTV 흑백 영상처럼 변환</li>
 </ul>
-<hr />
-<h2 id="23-noise-injection">2.3 노이즈 추가 (Noise Injection)<a class="headerlink" href="#23-noise-injection" title="Permanent link">&para;</a></h2>
+<hr>
+<h2 id="23-noise-injection">2.3 노이즈 추가 (Noise Injection)<a class="headerlink" href="#23-noise-injection" title="Permanent link">¶</a></h2>
 <ul>
 <li><strong>가우시안 노이즈 (Gaussian Noise)</strong></li>
 <li>평균 μ, 표준편차 σ를 갖는 정규분포 기반의 무작위 잡음을 이미지에 추가</li>
 <li>카메라 센서 노이즈, 무선 전송 오류, 저조도 환경 재현 가능</li>
 <li>과도하게 적용 시 중요한 디테일 손실 위험</li>
-<li>예 : 야간 감시 카메라 영상에 노이즈 추가<br />
+<li>예 : 야간 감시 카메라 영상에 노이즈 추가<br>
          오래된 VHS 비디오 영상의 질감을 재현 </li>
 </ul>
-<p><img alt="GaussianNoise" src="https://images.hitpaw.com/topics/photo-enhancer-tips/what-is-gaussian-noise-3.webp" /></p>
+<p><img alt="GaussianNoise" src="https://images.hitpaw.com/topics/photo-enhancer-tips/what-is-gaussian-noise-3.webp"></p>
 <ul>
 <li><strong>스펙클 노이즈 (Speckle Noise)</strong></li>
 <li>픽셀 값에 비례하여 잡음이 곱해지는 형태 (Multiplicative Noise)</li>
 <li>의료 영상(초음파, MRI 등)이나 레이더 영상에서 자주 발생</li>
 <li>원본 질감을 유지하면서 변형 가능</li>
-<li>예: 초음파 영상에 실제 촬영 환경의 노이즈 패턴 추가<br />
+<li>예: 초음파 영상에 실제 촬영 환경의 노이즈 패턴 추가<br>
         드론 촬영 이미지에 바람·날씨 영향 재현</li>
 </ul>
-<h2 id="_1"><img alt="SpeckleNoise" src="https://docs.omniverse.nvidia.com/extensions/latest/_images/replicator_augmentation_speckle_noise.gif" /><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<h2 id="24-advanced-techniques">2.4 고급 이미지 증강 기법 (Advanced Techniques)<a class="headerlink" href="#24-advanced-techniques" title="Permanent link">&para;</a></h2>
+<h2 id="_1"><img alt="SpeckleNoise" src="https://docs.omniverse.nvidia.com/extensions/latest/_images/replicator_augmentation_speckle_noise.gif"><a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<h2 id="24-advanced-techniques">2.4 고급 이미지 증강 기법 (Advanced Techniques)<a class="headerlink" href="#24-advanced-techniques" title="Permanent link">¶</a></h2>
 <ul>
 <li><strong>Cutout</strong>  </li>
 <li>이미지 일부 영역(정사각형 또는 임의 모양)을 무작위로 가림  </li>
 <li>특정 위치나 패턴에 과도하게 의존하지 않도록 학습  </li>
 <li>
-<p>일반화 성능 향상에 기여 <br />
-<img alt="Cutout" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIpp-HrBzUl70zVisu2GogqGCUwAW0ztIt_w&amp;s" /></p>
+<p>일반화 성능 향상에 기여 <br>
+<img alt="Cutout" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIpp-HrBzUl70zVisu2GogqGCUwAW0ztIt_w&amp;s"></p>
 </li>
 <li>
 <p><strong>Mixup</strong>  </p>
@@ -891,7 +913,7 @@
 <li>모델이 더 부드러운 결정 경계를 형성하게 하며, 노이즈에 덜 민감하도록 학습시킬 수 있음</li>
 <li>
 <p>분류 문제에서 과적합을 줄이는 데 효과적 / 오버피팅 방지 Regularization
-    <img alt="mix up" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FrDNBc%2FbtscVljrvRe%2FAAAAAAAAAAAAAAAAAAAAAF0np1gIrHYKNPwSZ9-5YgLwlqEyj4_alafH1rIQ3jgV%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3Dzc5juC4h2djHhtfoEb6SVQew2wQ%253D" />
+    <img alt="mix up" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FrDNBc%2FbtscVljrvRe%2FAAAAAAAAAAAAAAAAAAAAAF0np1gIrHYKNPwSZ9-5YgLwlqEyj4_alafH1rIQ3jgV%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3Dzc5juC4h2djHhtfoEb6SVQew2wQ%253D">
 <a href="https://geunuk.tistory.com/434">overfitting 방지 기법들</a></p>
 </li>
 <li>
@@ -901,7 +923,7 @@
 <li>다양한 위치와 배경에서 객체 인식을 돕고, 데이터 다양성을 높임</li>
 <li>
 <p>복잡한 배경에서의 객체 탐지에 자주 활용</p>
-<p><img width="400" height="400" alt="image" src="https://miro.medium.com/v2/resize:fit:1200/1*AYyS08SHERhl_ZDB_wWtvg.jpeg"/></p>
+<p><img width="400" height="400" alt="image" src="https://miro.medium.com/v2/resize:fit:1200/1*AYyS08SHERhl_ZDB_wWtvg.jpeg"></p>
 </li>
 <li>
 <p><strong>GAN 기반 데이터 생성</strong>  </p>
@@ -909,22 +931,22 @@
 <li>생성적 적대 신경망(Generative Adversarial Network)을 활용해 가상의 이미지 생성  </li>
 <li>부족한 클래스의 데이터를 보완하고, 다양한 스타일·조건의 데이터 확보 가능  </li>
 <li>예: 의료 영상 합성, 희귀 객체 생성
-    <img alt="GAN" src="https://junyanz.github.io/CycleGAN/images/teaser.jpg" /></li>
+    <img alt="GAN" src="https://junyanz.github.io/CycleGAN/images/teaser.jpg"></li>
 </ul>
-<hr />
-<h1 id="3-text-data-augmentation">3. 텍스트 데이터 증강 (Text Data Augmentation)<a class="headerlink" href="#3-text-data-augmentation" title="Permanent link">&para;</a></h1>
-<p>텍스트 데이터 증강은 원문 데이터의 의미를 유지하면서도 다양한 변형을 가해 <strong>학습 데이터의 다양성을 확대</strong>하는 기법이다.<br />
+<hr>
+<h1 id="3-text-data-augmentation">3. 텍스트 데이터 증강 (Text Data Augmentation)<a class="headerlink" href="#3-text-data-augmentation" title="Permanent link">¶</a></h1>
+<p>텍스트 데이터 증강은 원문 데이터의 의미를 유지하면서도 다양한 변형을 가해 <strong>학습 데이터의 다양성을 확대</strong>하는 기법이다.<br>
 특히 데이터 부족, 클래스 불균형 문제를 완화하는 데 효과적이다.  </p>
-<hr />
-<h2 id="31-word-level-augmentation">3.1 단어 수준 증강 (Word-level Augmentation)<a class="headerlink" href="#31-word-level-augmentation" title="Permanent link">&para;</a></h2>
+<hr>
+<h2 id="31-word-level-augmentation">3.1 단어 수준 증강 (Word-level Augmentation)<a class="headerlink" href="#31-word-level-augmentation" title="Permanent link">¶</a></h2>
 <p>### 3.1.1 동의어 대체 (Synonym Replacement)
-- <strong>설명</strong>: 문장의 특정 단어를 같은 의미를 가진 동의어로 치환하여 새로운 문장을 생성하는 방법<br />
-- <strong>장점</strong>: 문장의 의미를 크게 훼손하지 않으면서 다양성 확보 가능<br />
-- <strong>예</strong>:<br />
-  - 원문: "이 영화는 정말 재미있다."<br />
+- <strong>설명</strong>: 문장의 특정 단어를 같은 의미를 가진 동의어로 치환하여 새로운 문장을 생성하는 방법<br>
+- <strong>장점</strong>: 문장의 의미를 크게 훼손하지 않으면서 다양성 확보 가능<br>
+- <strong>예</strong>:<br>
+  - 원문: "이 영화는 정말 재미있다."<br>
   - 증강: "이 영화는 정말 흥미롭다."</p>
-<hr />
-<h3 id="312-random-insertiondeletion">3.1.2 임의 단어 삽입/삭제 (Random Insertion/Deletion)<a class="headerlink" href="#312-random-insertiondeletion" title="Permanent link">&para;</a></h3>
+<hr>
+<h3 id="312-random-insertiondeletion">3.1.2 임의 단어 삽입/삭제 (Random Insertion/Deletion)<a class="headerlink" href="#312-random-insertiondeletion" title="Permanent link">¶</a></h3>
 <ul>
 <li><strong>설명</strong>: 문장에서 특정 단어를 무작위로 추가하거나 제거하여 변형  </li>
 <li><strong>장점</strong>: 모델이 특정 단어에 과적합되지 않도록 일반화에 도움  </li>
@@ -933,8 +955,8 @@
 <li>단어 삽입: "오늘 정말 날씨가 좋다."  </li>
 <li>단어 삭제: "오늘 날씨가."</li>
 </ul>
-<hr />
-<h3 id="313-random-swap">3.1.3 임의 단어 순서 변경 (Random Swap)<a class="headerlink" href="#313-random-swap" title="Permanent link">&para;</a></h3>
+<hr>
+<h3 id="313-random-swap">3.1.3 임의 단어 순서 변경 (Random Swap)<a class="headerlink" href="#313-random-swap" title="Permanent link">¶</a></h3>
 <ul>
 <li><strong>설명</strong>: 문장 내 두 단어의 위치를 무작위로 바꿔서 변형  </li>
 <li><strong>장점</strong>: 단어 순서 변화에 둔감한 모델을 훈련하는 데 유용  </li>
@@ -942,9 +964,9 @@
 <li>원문: "고양이가 방에서 잔다."  </li>
 <li>증강: "방에서 고양이가 잔다."</li>
 </ul>
-<hr />
-<h2 id="32-sentence-level-augmentation">3.2 문장 수준 증강 (Sentence-level Augmentation)<a class="headerlink" href="#32-sentence-level-augmentation" title="Permanent link">&para;</a></h2>
-<h3 id="321-back-translation">3.2.1 역번역 (Back Translation)<a class="headerlink" href="#321-back-translation" title="Permanent link">&para;</a></h3>
+<hr>
+<h2 id="32-sentence-level-augmentation">3.2 문장 수준 증강 (Sentence-level Augmentation)<a class="headerlink" href="#32-sentence-level-augmentation" title="Permanent link">¶</a></h2>
+<h3 id="321-back-translation">3.2.1 역번역 (Back Translation)<a class="headerlink" href="#321-back-translation" title="Permanent link">¶</a></h3>
 <ul>
 <li><strong>설명</strong>: 원문을 다른 언어로 번역한 뒤, 다시 원래 언어로 번역하여 새로운 문장을 생성  </li>
 <li><strong>장점</strong>: 의미를 유지하면서도 문장의 표현을 다양화  </li>
@@ -953,8 +975,8 @@
 <li>영어 번역: "I like drinking coffee."  </li>
 <li>역번역: "나는 커피 마시는 걸 즐긴다."</li>
 </ul>
-<hr />
-<h3 id="322-sentence-reordering-paraphrasing">3.2.2 문장 재구성 (Sentence Reordering / Paraphrasing)<a class="headerlink" href="#322-sentence-reordering-paraphrasing" title="Permanent link">&para;</a></h3>
+<hr>
+<h3 id="322-sentence-reordering-paraphrasing">3.2.2 문장 재구성 (Sentence Reordering / Paraphrasing)<a class="headerlink" href="#322-sentence-reordering-paraphrasing" title="Permanent link">¶</a></h3>
 <ul>
 <li><strong>설명</strong>: 문장 내 구절이나 표현을 재배치하거나 다른 방식으로 표현  </li>
 <li><strong>장점</strong>: 같은 의미를 가진 다양한 문장 구조 제공  </li>
@@ -963,8 +985,8 @@
 <li>증강: "시험을 잘 보기 위해 그는 열심히 공부했다."  </li>
 <li>증강(다른 표현): "시험에서 좋은 성적을 받기 위해 그는 열심히 노력했다."</li>
 </ul>
-<hr />
-<h2 id="33-llm">3.3 LLM(대형 언어 모델) 기반 텍스트 생성<a class="headerlink" href="#33-llm" title="Permanent link">&para;</a></h2>
+<hr>
+<h2 id="33-llm">3.3 LLM(대형 언어 모델) 기반 텍스트 생성<a class="headerlink" href="#33-llm" title="Permanent link">¶</a></h2>
 <ul>
 <li>GPT, LLaMA, PaLM 등 활용  </li>
 <li>원문 문장을 변형하거나 주제에 맞는 새로운 예시 문장 생성 가능  </li>
@@ -976,8 +998,8 @@
 </ul>
 </li>
 </ul>
-<hr />
-<h2 id="34-class-imbalance-handling">3.4 불균형 데이터 대응 전략 (Class Imbalance Handling)<a class="headerlink" href="#34-class-imbalance-handling" title="Permanent link">&para;</a></h2>
+<hr>
+<h2 id="34-class-imbalance-handling">3.4 불균형 데이터 대응 전략 (Class Imbalance Handling)<a class="headerlink" href="#34-class-imbalance-handling" title="Permanent link">¶</a></h2>
 <ul>
 <li>소수 클래스(minority class)의 데이터를 증강하여 데이터 균형 확보  </li>
 <li>주요 전략:  </li>
@@ -985,7 +1007,7 @@
 <li><strong>LLM 활용 데이터 증강</strong>: 부족한 클래스용 새로운 문장 생성  </li>
 <li><strong>가중치 학습과 병행</strong>: 증강 데이터 + 클래스 가중치 조정  </li>
 </ul>
-<h3 id="341">3.4.1 소수 클래스 데이터 확대: 동의어 대체 · 역번역 등<a class="headerlink" href="#341" title="Permanent link">&para;</a></h3>
+<h3 id="341">3.4.1 소수 클래스 데이터 확대: 동의어 대체 · 역번역 등<a class="headerlink" href="#341" title="Permanent link">¶</a></h3>
 <ul>
 <li>핵심 아이디어</li>
 <li>
@@ -1028,8 +1050,8 @@
 <li>비즈니스 용어 보호: 제품명, 규정/약관 키워드는 변형 제외 리스트로 관리  </li>
 <li>증강 비율: 소수:다수 ≈ 1:1~1:3 범위에서 점진적으로 맞추기 (급격한 균형화는 과학습 위험)  </li>
 </ul>
-<hr />
-<h3 id="342-llm">3.4.2 LLM(대형 언어 모델) 활용 데이터 증강: 부족 클래스용 새 문장 생성<a class="headerlink" href="#342-llm" title="Permanent link">&para;</a></h3>
+<hr>
+<h3 id="342-llm">3.4.2 LLM(대형 언어 모델) 활용 데이터 증강: 부족 클래스용 새 문장 생성<a class="headerlink" href="#342-llm" title="Permanent link">¶</a></h3>
 <ul>
 <li>핵심 아이디어</li>
 <li>LLM을 <strong>제어(prompting)</strong>해 소수 클래스의 현실적인 샘플을 망라적으로 생성.  </li>
@@ -1078,8 +1100,8 @@
 <li>중복/표현 편향 완화: n-그램 중복, 문장 임베딩 유사도(threshold)로 중복 제거  </li>
 <li>데이터 표식: 생성 데이터에 <code>source=synthetic</code> 메타데이터 태깅 (분석/가중치·샘플링에 활용)  </li>
 </ul>
-<hr />
-<h3 id="343">3.4.3 가중치 학습과 병행: 증강 데이터 + 클래스 가중치 조정<a class="headerlink" href="#343" title="Permanent link">&para;</a></h3>
+<hr>
+<h3 id="343">3.4.3 가중치 학습과 병행: 증강 데이터 + 클래스 가중치 조정<a class="headerlink" href="#343" title="Permanent link">¶</a></h3>
 <ul>
 <li>핵심 아이디어</li>
 <li>데이터 증강만으로 부족하면, 손실함수의 클래스 가중치 또는 샘플 가중치를 조정해 소수 클래스 오류를 더 크게 페널티.  </li>
@@ -1147,19 +1169,19 @@
 </ul>
 </li>
 </ul>
-<h2 id="_2">텍스트 데이터 증강에 대한 요약<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">텍스트 데이터 증강에 대한 요약<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <p>텍스트 데이터 증강은 <strong>데이터 부족</strong>과 <strong>클래스 불균형</strong> 문제를 해결하기 위한 핵심 기법임
-- <strong>단어 수준</strong>에서는 동의어 대체, 삽입/삭제, 순서 변경을 활용한다.<br />
-- <strong>문장 수준</strong>에서는 역번역과 재구성으로 다양한 문장을 만든다.<br />
-- <strong>LLM 기반</strong> 증강은 최신 언어 모델을 이용해 고품질 데이터를 생성한다.<br />
+- <strong>단어 수준</strong>에서는 동의어 대체, 삽입/삭제, 순서 변경을 활용한다.<br>
+- <strong>문장 수준</strong>에서는 역번역과 재구성으로 다양한 문장을 만든다.<br>
+- <strong>LLM 기반</strong> 증강은 최신 언어 모델을 이용해 고품질 데이터를 생성한다.<br>
 - <strong>불균형 데이터 문제</strong>는 소수 클래스 증강과 LLM 활용, 가중치 조정을 병행하여 해결한다.  </p>
 <p>👉 정리하면, 텍스트 증강은 모델 성능 향상뿐만 아니라 데이터 다양성 확보와 학습 안정성을 높이는 데 필수적인 전략이다.</p>
-<hr />
-<h1 id="4">4. 오디오 데이터 증강<a class="headerlink" href="#4" title="Permanent link">&para;</a></h1>
-<p>오디오 데이터는 음성 인식, 화자 식별, 음악 분류 등 다양한 AI 모델 학습에 사용됨.<br />
+<hr>
+<h1 id="4">4. 오디오 데이터 증강<a class="headerlink" href="#4" title="Permanent link">¶</a></h1>
+<p>오디오 데이터는 음성 인식, 화자 식별, 음악 분류 등 다양한 AI 모델 학습에 사용됨.<br>
 오디오 증강은 모델이 다양한 발화 환경과 변형된 음성을 학습할 수 있도록 지원함.</p>
-<hr />
-<h2 id="41">4.1 시간 축 변환<a class="headerlink" href="#41" title="Permanent link">&para;</a></h2>
+<hr>
+<h2 id="41">4.1 시간 축 변환<a class="headerlink" href="#41" title="Permanent link">¶</a></h2>
 <ul>
 <li><strong>속도 변화(Time Stretch)</strong>  </li>
 <li>오디오 파일의 재생 속도를 빠르게 혹은 느리게 변환하되, <strong>피치는 유지</strong>함.  </li>
@@ -1185,8 +1207,8 @@
 <li>화자 성별, 연령, 감정 표현 등 변화를 학습할 수 있음.</li>
 <li>주파수 스펙트럼 이동 도식화</li>
 </ul>
-<hr />
-<h2 id="42">4.2 스펙트로그램 변환<a class="headerlink" href="#42" title="Permanent link">&para;</a></h2>
+<hr>
+<h2 id="42">4.2 스펙트로그램 변환<a class="headerlink" href="#42" title="Permanent link">¶</a></h2>
 <ul>
 <li><strong>SpecAugment</strong>  </li>
 <li>오디오를 <strong>스펙트로그램</strong>으로 변환한 뒤, 특정 영역을 마스킹하는 방법.  </li>
@@ -1198,10 +1220,10 @@
 </ul>
 </li>
 </ul>
-<p><img alt="img" src="https://github.com/shelling203/SpecAugment/raw/master/images/Figure_1.png" />
-<img alt="img" src="https://github.com/shelling203/SpecAugment/raw/master/images/Figure_2.png" /></p>
-<hr />
-<h2 id="43">4.3 잡음 추가<a class="headerlink" href="#43" title="Permanent link">&para;</a></h2>
+<p><img alt="img" src="https://github.com/shelling203/SpecAugment/raw/master/images/Figure_1.png">
+<img alt="img" src="https://github.com/shelling203/SpecAugment/raw/master/images/Figure_2.png"></p>
+<hr>
+<h2 id="43">4.3 잡음 추가<a class="headerlink" href="#43" title="Permanent link">¶</a></h2>
 <ul>
 <li>잡음 추가 기법 비교</li>
 </ul>
@@ -1267,25 +1289,25 @@
 </tr>
 </tbody>
 </table>
-<h2 id="44-tts">4.4 TTS 기반 데이터 생성<a class="headerlink" href="#44-tts" title="Permanent link">&para;</a></h2>
+<h2 id="44-tts">4.4 TTS 기반 데이터 생성<a class="headerlink" href="#44-tts" title="Permanent link">¶</a></h2>
 <blockquote>
 <p>텍스트를 다양한 <strong>합성 음성(TTS)</strong> 으로 변환하여, 실제 녹음 없이 <strong>화자·억양·채널·잡음 조건</strong>을 다양화해 학습 데이터를 확장하는 방법.</p>
 </blockquote>
-<hr />
+<hr>
 <ul>
 <li><strong>저자원 도메인</strong>(희귀 언어, 방언, 특정 의도/슬롯)에서 샘플 확보가 어렵거나 비용이 큰 경우</li>
 <li><strong>ASR/의도 분류/슬롯 태깅/키워드 스폿팅</strong> 등에서 <strong>발화·환경 편차</strong>에 강건한 모델 필요</li>
 <li><strong>새 기능/신제품</strong> 출시 전, 빠르게 <strong>커버리지 갭</strong>을 메우고 리스크를 낮추고 싶을 때</li>
 </ul>
-<hr />
+<hr>
 <ul>
 <li>핵심 아이디어</li>
 <li>텍스트는 같아도 <strong>화자(Voice), 억양(Prosody), 속도(Speed), 피치(Pitch), 감정(Style)</strong> 을 바꿔 <strong>다양한 음성 조건</strong>을 확보</li>
 <li><strong>잡음/리버브/채널</strong>(전화선 등) 조건을 합성해 <strong>현실적 배포 환경</strong>을 모사</li>
 <li><strong>정확한 라벨</strong>(의도/엔티티/타임스탬프)을 유지하며 대량 생성 가능</li>
 </ul>
-<hr />
-<h3 id="_3">주요 증강 기법 &amp; 예시<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<hr>
+<h3 id="_3">주요 증강 기법 &amp; 예시<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
 <table>
 <thead>
 <tr>
@@ -1328,14 +1350,14 @@
 </tr>
 </tbody>
 </table>
-<hr />
-<h1 id="5-multimodal-data-augmentation">5. 멀티모달 데이터 증강 (Multimodal Data Augmentation)<a class="headerlink" href="#5-multimodal-data-augmentation" title="Permanent link">&para;</a></h1>
+<hr>
+<h1 id="5-multimodal-data-augmentation">5. 멀티모달 데이터 증강 (Multimodal Data Augmentation)<a class="headerlink" href="#5-multimodal-data-augmentation" title="Permanent link">¶</a></h1>
 <blockquote>
 <p>멀티모달 데이터 증강이란 <strong>텍스트, 오디오, 이미지, 비디오 등 서로 다른 형태의 데이터(모달리티)</strong>를 동시에 활용하거나 결합하여 학습 데이터를 늘리고 다양성을 확보하는 기법을 의미<br>
 이는 단일 모달 증강보다 <strong>현실 세계와 가까운 시나리오 학습</strong>을 가능하게 하며, 멀티모달 모델(예: CLIP, LLaVA, Speech-Image 모델 등)의 성능 향상에 크게 기여함</p>
 </blockquote>
-<hr />
-<h2 id="51-">5.1 텍스트-이미지 증강<a class="headerlink" href="#51-" title="Permanent link">&para;</a></h2>
+<hr>
+<h2 id="51-">5.1 텍스트-이미지 증강<a class="headerlink" href="#51-" title="Permanent link">¶</a></h2>
 <ul>
 <li><strong>무엇</strong>: 텍스트와 이미지를 동시에 변형하거나, 하나를 변형해 다른 모달과 짝지음  </li>
 <li><strong>기법</strong></li>
@@ -1346,8 +1368,8 @@
 <li>원본: 이미지(강아지 사진) + 텍스트(“강아지가 잔디밭에서 뛰고 있다”)  </li>
 <li>증강: 동일 이미지 + “잔디 위에서 강아지가 달리고 있는 모습”  </li>
 </ul>
-<hr />
-<h2 id="52-">5.2 텍스트-오디오 증강<a class="headerlink" href="#52-" title="Permanent link">&para;</a></h2>
+<hr>
+<h2 id="52-">5.2 텍스트-오디오 증강<a class="headerlink" href="#52-" title="Permanent link">¶</a></h2>
 <ul>
 <li><strong>무엇</strong>: 텍스트와 오디오를 함께 변형하여 TTS/STT 학습 데이터 강화  </li>
 <li><strong>기법</strong></li>
@@ -1358,8 +1380,8 @@
 <li>원본: “안녕하세요” (깨끗한 발화)  </li>
 <li>증강: “안녕하십니까” (TTS 변환), “안녕하세요” + 지하철 소음 믹싱  </li>
 </ul>
-<hr />
-<h2 id="53-">5.3 이미지-오디오 증강<a class="headerlink" href="#53-" title="Permanent link">&para;</a></h2>
+<hr>
+<h2 id="53-">5.3 이미지-오디오 증강<a class="headerlink" href="#53-" title="Permanent link">¶</a></h2>
 <ul>
 <li><strong>무엇</strong>: 이미지와 오디오를 결합해 멀티모달 학습에 사용  </li>
 <li><strong>기법</strong></li>
@@ -1370,8 +1392,8 @@
 <li>원본: 강아지 사진  </li>
 <li>증강: 오디오(짖는 소리), 텍스트(“강아지가 짖고 있다”)  </li>
 </ul>
-<hr />
-<h2 id="54-">5.4 텍스트-비디오 증강<a class="headerlink" href="#54-" title="Permanent link">&para;</a></h2>
+<hr>
+<h2 id="54-">5.4 텍스트-비디오 증강<a class="headerlink" href="#54-" title="Permanent link">¶</a></h2>
 <ul>
 <li><strong>무엇</strong>: 비디오와 텍스트 캡션을 증강하거나 합성  </li>
 <li><strong>기법</strong></li>
@@ -1382,8 +1404,8 @@
 <li>원본: “사람이 공을 차고 있다” (축구 영상)  </li>
 <li>증강: 동일 영상에서 “축구선수가 슛을 하고 있다” (캡션 변경)  </li>
 </ul>
-<hr />
-<h2 id="55-cross-modal-transformation">5.5 크로스모달 변환 (Cross-modal Transformation)<a class="headerlink" href="#55-cross-modal-transformation" title="Permanent link">&para;</a></h2>
+<hr>
+<h2 id="55-cross-modal-transformation">5.5 크로스모달 변환 (Cross-modal Transformation)<a class="headerlink" href="#55-cross-modal-transformation" title="Permanent link">¶</a></h2>
 <ul>
 <li><strong>무엇</strong>: 한 모달 데이터를 다른 모달로 변환  </li>
 <li><strong>기법</strong></li>
@@ -1395,49 +1417,49 @@
 <li>텍스트: “고양이가 의자 위에 앉아 있다”  </li>
 <li>생성 이미지: 고양이 + 의자 장면  </li>
 </ul>
-<hr />
-<h2 id="cross-modal-consistency">(번외) Cross-Modal Consistency 유지 기법<a class="headerlink" href="#cross-modal-consistency" title="Permanent link">&para;</a></h2>
+<hr>
+<h2 id="cross-modal-consistency">(번외) Cross-Modal Consistency 유지 기법<a class="headerlink" href="#cross-modal-consistency" title="Permanent link">¶</a></h2>
 <blockquote>
 <p>멀티모달 데이터(예: 음성–텍스트, 이미지–텍스트, 비디오–오디오)를 함께 학습할 때 중요한 과제는 <b>[1]. 모달 간 일관성(Consistency)</b>과 <b>[2].상호작용(Attention)</b>을 유지하는 것이다. 이를 위해 여러 기법이 활용된다.  </p>
 </blockquote>
-<hr />
-<h3 id="1-consistency-">[1]. Consistency - 모달 간 일관성에 관한 기법<a class="headerlink" href="#1-consistency-" title="Permanent link">&para;</a></h3>
-<h4 id="1-contrastive-learning">(1) Contrastive Learning 기반 정렬<a class="headerlink" href="#1-contrastive-learning" title="Permanent link">&para;</a></h4>
+<hr>
+<h3 id="1-consistency-">[1]. Consistency - 모달 간 일관성에 관한 기법<a class="headerlink" href="#1-consistency-" title="Permanent link">¶</a></h3>
+<h4 id="1-contrastive-learning">(1) Contrastive Learning 기반 정렬<a class="headerlink" href="#1-contrastive-learning" title="Permanent link">¶</a></h4>
 <ul>
 <li><strong>아이디어</strong>: 서로 다른 모달(예: 이미지–텍스트)이 동일한 의미를 담으면 <strong>임베딩 공간에서 가까워지도록</strong>, 다른 의미라면 <strong>멀어지도록</strong> 학습.  </li>
 <li><strong>대표 기법</strong>: CLIP(OpenAI), ALIGN(Google).  </li>
 <li><strong>장점</strong>: 모달 간 의미 연결이 명확해져, 제로샷 인식이나 검색에 강함.  </li>
 <li><strong>예시</strong>:  </li>
 <li>텍스트: <em>“검은 고양이가 의자 위에 앉아 있다.”</em>  </li>
-<li>이미지: 실제 고양이 사진<br />
+<li>이미지: 실제 고양이 사진<br>
   → 두 모달의 벡터를 유사하게 매핑.</li>
 </ul>
-<hr />
-<h4 id="2-cycle-consistency">(2) Cycle-Consistency 학습<a class="headerlink" href="#2-cycle-consistency" title="Permanent link">&para;</a></h4>
+<hr>
+<h4 id="2-cycle-consistency">(2) Cycle-Consistency 학습<a class="headerlink" href="#2-cycle-consistency" title="Permanent link">¶</a></h4>
 <ul>
 <li><strong>아이디어</strong>: 한 모달에서 다른 모달로 변환한 뒤 다시 원래 모달로 복원했을 때 정보 손실이 최소화되도록 제약.  </li>
 <li><strong>적용 예시</strong>:  </li>
 <li>텍스트 → 이미지 생성 → 텍스트 재생성 → 원문과 의미 일치 확인.  </li>
 <li><strong>장점</strong>: 직접적인 정답 데이터 없이도 모달 간 의미 연결성을 강화할 수 있음.</li>
 </ul>
-<hr />
-<h4 id="3-alignment-loss">(3) Alignment Loss<a class="headerlink" href="#3-alignment-loss" title="Permanent link">&para;</a></h4>
+<hr>
+<h4 id="3-alignment-loss">(3) Alignment Loss<a class="headerlink" href="#3-alignment-loss" title="Permanent link">¶</a></h4>
 <ul>
 <li><strong>아이디어</strong>: 두 모달의 표현 간 거리를 줄이는 손실 함수 사용.  </li>
 <li><strong>방법</strong>: MSE, Cosine Similarity Loss 등을 활용해 <strong>feature-level consistency</strong> 확보.  </li>
 <li><strong>예시</strong>:  </li>
 <li>음성 임베딩 ↔ 텍스트 임베딩을 같은 벡터 공간에 매핑.  </li>
 </ul>
-<hr />
-<h4 id="4-semantic-consistency-regularization">(4) Semantic Consistency Regularization<a class="headerlink" href="#4-semantic-consistency-regularization" title="Permanent link">&para;</a></h4>
+<hr>
+<h4 id="4-semantic-consistency-regularization">(4) Semantic Consistency Regularization<a class="headerlink" href="#4-semantic-consistency-regularization" title="Permanent link">¶</a></h4>
 <ul>
 <li><strong>아이디어</strong>: 모달 변환 후에도 의미(semantic)가 유지되도록 정규화.  </li>
 <li><strong>예시</strong>:  </li>
 <li>"강아지가 뛰어다닌다" → 음성 TTS → ASR 변환 → 동일한 의미로 복원 확인.  </li>
 </ul>
-<hr />
-<h3 id="2-cross-modal-attention">[2]. Cross-Modal Attention 기법<a class="headerlink" href="#2-cross-modal-attention" title="Permanent link">&para;</a></h3>
-<h4 id="1-co-attention">(1) Co-Attention (양방향 주의)<a class="headerlink" href="#1-co-attention" title="Permanent link">&para;</a></h4>
+<hr>
+<h3 id="2-cross-modal-attention">[2]. Cross-Modal Attention 기법<a class="headerlink" href="#2-cross-modal-attention" title="Permanent link">¶</a></h3>
+<h4 id="1-co-attention">(1) Co-Attention (양방향 주의)<a class="headerlink" href="#1-co-attention" title="Permanent link">¶</a></h4>
 <ul>
 <li><strong>아이디어</strong>: 한 모달의 중요한 부분을 다른 모달이 참고하여 <strong>양방향 주의(attention map)</strong>을 계산.  </li>
 <li><strong>예시</strong>:  </li>
@@ -1447,22 +1469,22 @@
 </ul>
 </li>
 </ul>
-<hr />
-<h4 id="2-cross-attention">(2) Cross-Attention (단방향 주의)<a class="headerlink" href="#2-cross-attention" title="Permanent link">&para;</a></h4>
+<hr>
+<h4 id="2-cross-attention">(2) Cross-Attention (단방향 주의)<a class="headerlink" href="#2-cross-attention" title="Permanent link">¶</a></h4>
 <ul>
 <li><strong>아이디어</strong>: 특정 모달이 다른 모달을 key–value로 삼아 context를 추출.  </li>
 <li><strong>대표 구조</strong>: Transformer 기반 멀티헤드 어텐션(MHA).  </li>
 <li><strong>예시</strong>:  </li>
 <li>음성 → 텍스트 변환 시, 음성 프레임을 query로, 텍스트 임베딩을 key–value로 사용하여 alignment 학습.  </li>
 </ul>
-<hr />
-<h4 id="3-multi-modal-transformer">(3) Multi-Modal Transformer<a class="headerlink" href="#3-multi-modal-transformer" title="Permanent link">&para;</a></h4>
+<hr>
+<h4 id="3-multi-modal-transformer">(3) Multi-Modal Transformer<a class="headerlink" href="#3-multi-modal-transformer" title="Permanent link">¶</a></h4>
 <ul>
 <li><strong>아이디어</strong>: 서로 다른 모달을 <strong>공동 Transformer 인코더</strong>에 입력하여 attention layer에서 자연스럽게 상호작용.  </li>
 <li><strong>대표 사례</strong>: ViLBERT, LXMERT.  </li>
 <li><strong>장점</strong>: 모달 간 fine-grained interaction 가능.  </li>
 </ul>
-<hr />
+<hr>
 <details>
 <summary>요약 표</summary>
 
@@ -1477,11 +1499,11 @@
 | Multi-Modal Transformer | 통합 Transformer 구조 | 멀티모달 분류, QA | 강력한 표현력 | ViLBERT, LXMERT |
 </details>
 
-<hr />
-<h1 id="6">6. 데이터 증강 자동화 및 라이브러리<a class="headerlink" href="#6" title="Permanent link">&para;</a></h1>
-<h2 id="61">6.1 대표 라이브러리<a class="headerlink" href="#61" title="Permanent link">&para;</a></h2>
-<h3 id="_4">📷 이미지<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>이미지 데이터 증강은 컴퓨터 비전 모델의 일반화 성능을 높이고 과적합을 방지하기 위해 필수적으로 사용됩니다.<br />
+<hr>
+<h1 id="6">6. 데이터 증강 자동화 및 라이브러리<a class="headerlink" href="#6" title="Permanent link">¶</a></h1>
+<h2 id="61">6.1 대표 라이브러리<a class="headerlink" href="#61" title="Permanent link">¶</a></h2>
+<h3 id="_4">📷 이미지<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<p>이미지 데이터 증강은 컴퓨터 비전 모델의 일반화 성능을 높이고 과적합을 방지하기 위해 필수적으로 사용됩니다.<br>
 다양한 변환을 통해 모델이 다양한 환경과 조건에서 견고하게 작동하도록 돕습니다.</p>
 <ul>
 <li><strong>주요 기법</strong></li>
@@ -1503,8 +1525,8 @@
   | <strong>AugLy</strong> | 실세계 강건성 평가 중심 변환(이미지·오디오·텍스트 지원) |</p>
 </li>
 </ul>
-<hr />
-<h3 id="_5">📝 텍스트<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<hr>
+<h3 id="_5">📝 텍스트<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
 <p>텍스트 데이터 증강은 자연어 처리(NLP) 모델의 어휘 다양성과 문맥 이해 능력을 향상시키는 데 사용됩니다.</p>
 <ul>
 <li><strong>주요 기법</strong></li>
@@ -1523,8 +1545,8 @@
   | <strong>EDA(Easy Data Augmentation)</strong> | 간단한 동의어 치환·삽입·삭제·스와프 기법 구현 |</p>
 </li>
 </ul>
-<hr />
-<h3 id="_6">🎵 오디오<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<hr>
+<h3 id="_6">🎵 오디오<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
 <p>오디오 데이터 증강은 음성 인식, 화자 식별, 음악 분류 등에서 다양한 환경과 발음을 학습하도록 돕습니다.</p>
 <ul>
 <li><strong>주요 기법</strong></li>
@@ -1543,9 +1565,9 @@
   | <strong>librosa</strong> | 오디오 분석·변환, 스펙트로그램 기반 증강 가능 |</p>
 </li>
 </ul>
-<hr />
-<h2 id="62">6.2 증강 파이프라인 최적화<a class="headerlink" href="#62" title="Permanent link">&para;</a></h2>
-<h3 id="621-gpu">6.2.1 GPU 가속 활용<a class="headerlink" href="#621-gpu" title="Permanent link">&para;</a></h3>
+<hr>
+<h2 id="62">6.2 증강 파이프라인 최적화<a class="headerlink" href="#62" title="Permanent link">¶</a></h2>
+<h3 id="621-gpu">6.2.1 GPU 가속 활용<a class="headerlink" href="#621-gpu" title="Permanent link">¶</a></h3>
 <ul>
 <li><strong>CUDA 병렬 처리</strong>: 대규모 이미지·오디오 증강 시 GPU의 CUDA 코어를 활용해 연산을 병렬화하면 CPU 대비 수~수십 배 빠른 처리 가능.</li>
 <li><strong>Tensor 코어/혼합 정밀도(FP16)</strong>: NVIDIA Tensor 코어와 <code>torch.cuda.amp.autocast()</code>(PyTorch) 또는 <code>tf.keras.mixed_precision</code>(TensorFlow)로 FP16 연산을 활성화해 메모리 사용량 절감 및 처리 속도 향상.</li>
@@ -1558,8 +1580,8 @@
 <li>불필요한 텐서 즉시 해제(<code>del</code>, <code>torch.cuda.empty_cache()</code>).</li>
 <li>데이터 타입 다운캐스팅(float32 → float16).</li>
 </ul>
-<hr />
-<h3 id="622-on-the-fly-augmentation">6.2.2 실시간 증강(On-the-fly Augmentation)<a class="headerlink" href="#622-on-the-fly-augmentation" title="Permanent link">&para;</a></h3>
+<hr>
+<h3 id="622-on-the-fly-augmentation">6.2.2 실시간 증강(On-the-fly Augmentation)<a class="headerlink" href="#622-on-the-fly-augmentation" title="Permanent link">¶</a></h3>
 <ul>
 <li><strong>개념</strong>: 학습 중 배치 단위로 증강을 적용해 디스크 저장 공간 절약 및 데이터 다양성 극대화.</li>
 <li><strong>장점</strong>:</li>
@@ -1574,8 +1596,8 @@
 <li>복잡한 변환은 GPU에서 처리해 CPU 병목 방지.</li>
 <li>실시간 변환 시 처리 속도가 학습 속도를 따라가도록 병렬 처리 및 prefetch 사용.</li>
 </ul>
-<hr />
-<h3 id="623-io">6.2.3 I/O 및 스토리지 최적화<a class="headerlink" href="#623-io" title="Permanent link">&para;</a></h3>
+<hr>
+<h3 id="623-io">6.2.3 I/O 및 스토리지 최적화<a class="headerlink" href="#623-io" title="Permanent link">¶</a></h3>
 <ul>
 <li><strong>고속 스토리지 사용</strong>: NVMe SSD, GPU Direct Storage로 데이터 로딩 지연 최소화.</li>
 <li><strong>데이터 포맷 최적화</strong>:</li>
@@ -1585,8 +1607,8 @@
 <li>PyTorch: <code>DataLoader</code>의 <code>prefetch_factor</code>, <code>num_workers</code> 조정.</li>
 <li>TensorFlow: <code>.prefetch(tf.data.AUTOTUNE)</code>, <code>.cache()</code> 활용.</li>
 </ul>
-<hr />
-<h3 id="624">6.2.4 파이프라인 병렬화 및 분산 처리<a class="headerlink" href="#624" title="Permanent link">&para;</a></h3>
+<hr>
+<h3 id="624">6.2.4 파이프라인 병렬화 및 분산 처리<a class="headerlink" href="#624" title="Permanent link">¶</a></h3>
 <ul>
 <li><strong>멀티 GPU/멀티 노드</strong>:</li>
 <li><code>DistributedDataParallel</code>(PyTorch), <code>tf.distribute.Strategy</code>(TensorFlow)로 데이터 병렬 처리.</li>
@@ -1594,24 +1616,24 @@
 <li>데이터 로딩·증강·학습을 비동기 처리로 분리.</li>
 <li>CPU는 디코딩·간단 변환, GPU는 복잡한 변환 담당.</li>
 </ul>
-<hr />
-<h3 id="625">6.2.5 정책 최적화 및 검증<a class="headerlink" href="#625" title="Permanent link">&para;</a></h3>
+<hr>
+<h3 id="625">6.2.5 정책 최적화 및 검증<a class="headerlink" href="#625" title="Permanent link">¶</a></h3>
 <ul>
 <li><strong>어블레이션 테스트</strong>: 변환군별 on/off 실험으로 성능 기여도 분석.</li>
 <li><strong>자동 증강 기법</strong>: AutoAugment, RandAugment, TrivialAugment, AugMix 등으로 정책 탐색 비용 절감.</li>
 <li><strong>도메인 정합성 검증</strong>: 실제 배포 환경과 유사한 조건에서 성능 평가.</li>
 </ul>
-<hr />
-<h3 id="626">6.2.6 추가 최적화 방법<a class="headerlink" href="#626" title="Permanent link">&para;</a></h3>
+<hr>
+<h3 id="626">6.2.6 추가 최적화 방법<a class="headerlink" href="#626" title="Permanent link">¶</a></h3>
 <ul>
 <li><strong>Mixed Pipeline</strong>: CPU·GPU 증강 혼합 사용으로 자원 활용 극대화.</li>
 <li><strong>Lazy Loading</strong>: 필요한 시점에만 데이터 로드.</li>
 <li><strong>메모리 매핑</strong>: <code>numpy.memmap</code> 또는 <code>mmap</code>으로 대용량 데이터 접근 속도 향상.</li>
 <li><strong>온도·전력 관리</strong>: 장시간 학습 시 GPU 발열 관리 및 전력 안정성 확보.</li>
 </ul>
-<hr />
-<h1 id="7">7. 데이터 증강의 효과 검증<a class="headerlink" href="#7" title="Permanent link">&para;</a></h1>
-<h2 id="71">7.1 증강 전후 모델 성능 비교<a class="headerlink" href="#71" title="Permanent link">&para;</a></h2>
+<hr>
+<h1 id="7">7. 데이터 증강의 효과 검증<a class="headerlink" href="#7" title="Permanent link">¶</a></h1>
+<h2 id="71">7.1 증강 전후 모델 성능 비교<a class="headerlink" href="#71" title="Permanent link">¶</a></h2>
 <p>데이터 증강의 효과를 가장 직관적으로 확인하는 방법은 <strong>동일한 조건에서 증강 전후 모델 성능을 비교</strong>하는 것입니다.</p>
 <ul>
 <li><strong>예시 결과</strong></li>
@@ -1627,13 +1649,13 @@
 </li>
 <li>
 <p>confusion matrix
-<img alt="img" src="https://wikidocs.net/images/page/105124/confusion.png" /></p>
+<img alt="img" src="https://wikidocs.net/images/page/105124/confusion.png"></p>
 </li>
 </ul>
-<h3 id="711-accuracy">7.1.1 정확도 (Accuracy)<a class="headerlink" href="#711-accuracy" title="Permanent link">&para;</a></h3>
+<h3 id="711-accuracy">7.1.1 정확도 (Accuracy)<a class="headerlink" href="#711-accuracy" title="Permanent link">¶</a></h3>
 <ul>
 <li><strong>정의</strong>: 전체 예측 중에서 맞춘 비율.</li>
-<li><strong>계산식</strong>:<br />
+<li><strong>계산식</strong>:<br>
 <code>math
    Accuracy = \frac{TP + TN}{TP + TN + FP + FN}</code></li>
 <li>TP: True Positive</li>
@@ -1648,8 +1670,8 @@
 <li>이미지 분류, 음성 인식 등 전반적인 분류 정확도 평가.</li>
 <li><strong>참고 이미지</strong>: <a href="https://wikidocs.net/192942">Accuracy 개념 그래프</a></li>
 </ul>
-<hr />
-<h3 id="712-precision">7.1.2 정밀도 (Precision)<a class="headerlink" href="#712-precision" title="Permanent link">&para;</a></h3>
+<hr>
+<h3 id="712-precision">7.1.2 정밀도 (Precision)<a class="headerlink" href="#712-precision" title="Permanent link">¶</a></h3>
 <ul>
 <li><strong>정의</strong>: 모델이 Positive로 예측한 것 중 실제 Positive의 비율.</li>
 <li><strong>계산식</strong>
@@ -1662,11 +1684,11 @@
 <li>스팸 필터링(정상 메일을 스팸으로 분류하는 오류 최소화).</li>
 <li><strong>참고 이미지</strong>: <a href="https://ai-com.tistory.com/entry/ML-%EB%B6%84%EB%A5%98-%EC%84%B1%EB%8A%A5-%EC%A7%80%ED%91%9C-Precision%EC%A0%95%EB%B0%80%EB%8F%84-Recall%EC%9E%AC%ED%98%84%EC%9C%A8">Precision 개념 그래프</a></li>
 </ul>
-<hr />
-<h3 id="713-recall-sensitivity">7.1.3 재현율 (Recall, Sensitivity)<a class="headerlink" href="#713-recall-sensitivity" title="Permanent link">&para;</a></h3>
+<hr>
+<h3 id="713-recall-sensitivity">7.1.3 재현율 (Recall, Sensitivity)<a class="headerlink" href="#713-recall-sensitivity" title="Permanent link">¶</a></h3>
 <ul>
 <li><strong>정의</strong>: 실제 Positive 중에서 모델이 Positive로 맞춘 비율.</li>
-<li><strong>계산식</strong>:<br />
+<li><strong>계산식</strong>:<br>
 <code>math
   Recall = \frac{TP}{TP + FN}</code></li>
 <li><strong>특징</strong></li>
@@ -1676,11 +1698,11 @@
 <li>질병 진단(환자를 놓치지 않는 것이 중요).</li>
 <li><strong>참고 이미지</strong>: <a href="https://ai-com.tistory.com/entry/ML-%EB%B6%84%EB%A5%98-%EC%84%B1%EB%8A%A5-%EC%A7%80%ED%91%9C-Precision%EC%A0%95%EB%B0%80%EB%8F%84-Recall%EC%9E%AC%ED%98%84%EC%9C%A8">Recall 개념 그래프</a></li>
 </ul>
-<hr />
-<h3 id="714-f1-score">7.1.4 F1-score<a class="headerlink" href="#714-f1-score" title="Permanent link">&para;</a></h3>
+<hr>
+<h3 id="714-f1-score">7.1.4 F1-score<a class="headerlink" href="#714-f1-score" title="Permanent link">¶</a></h3>
 <ul>
 <li><strong>정의</strong>: Precision과 Recall의 조화 평균.</li>
-<li><strong>계산식</strong>:<br />
+<li><strong>계산식</strong>:<br>
 <code>math
    F1 = 2 \times \frac{Precision \times Recall}{Precision + Recall}</code></li>
 <li><strong>특징</strong></li>
@@ -1690,8 +1712,8 @@
 <li>데이터 불균형 상황에서 종합 성능 평가.</li>
 <li><strong>참고 이미지</strong>: <a href="https://ai-com.tistory.com/entry/ML-%EB%B6%84%EB%A5%98-%EC%84%B1%EB%8A%A5-%EC%A7%80%ED%91%9C-Precision%EC%A0%95%EB%B0%80%EB%8F%84-Recall%EC%9E%AC%ED%98%84%EC%9C%A8">F1-score 개념 그래프</a></li>
 </ul>
-<hr />
-<h3 id="715-map-mean-average-precision">7.1.5 mAP (mean Average Precision)<a class="headerlink" href="#715-map-mean-average-precision" title="Permanent link">&para;</a></h3>
+<hr>
+<h3 id="715-map-mean-average-precision">7.1.5 mAP (mean Average Precision)<a class="headerlink" href="#715-map-mean-average-precision" title="Permanent link">¶</a></h3>
 <ul>
 <li><strong>정의</strong>: 객체 탐지(Object Detection)에서 클래스별 Average Precision(AP)의 평균.</li>
 <li><strong>계산 과정</strong></li>
@@ -1706,8 +1728,8 @@
 <li>YOLO, Faster R-CNN 등 객체 탐지 모델 평가.</li>
 <li><strong>참고 이미지</strong>: <a href="https://jonathan-hui.medium.com/map-mean-average-precision-for-object-detection-45c121a31173">mAP 개념 그래프</a></li>
 </ul>
-<hr />
-<h3 id="_7">📌 종합 비교 표<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<hr>
+<h3 id="_7">📌 종합 비교 표<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
 <table>
 <thead>
 <tr>
@@ -1756,15 +1778,15 @@
 </tr>
 </tbody>
 </table>
-<hr />
+<hr>
 <ul>
 <li><strong>추가 분석</strong></li>
 <li>클래스별 성능 변화(특히 소수 클래스)</li>
 <li>정밀도(Precision)와 재현율(Recall) 변화 패턴</li>
 <li>ROC-AUC, PR-AUC 곡선 비교</li>
 </ul>
-<hr />
-<h2 id="72">7.2 증강 데이터의 품질 평가<a class="headerlink" href="#72" title="Permanent link">&para;</a></h2>
+<hr>
+<h2 id="72">7.2 증강 데이터의 품질 평가<a class="headerlink" href="#72" title="Permanent link">¶</a></h2>
 <p>증강 데이터의 품질은 <strong>양적 증가보다 질적 향상</strong>이 중요합니다.</p>
 <ul>
 <li><strong>품질 저하 사례</strong></li>
@@ -1787,8 +1809,8 @@
 <li>텍스트: 문법 검사, 의미 유사도(Embedding Cosine Similarity) 기반 필터링</li>
 <li>오디오: SNR(Signal-to-Noise Ratio) 기준 필터링</li>
 </ul>
-<hr />
-<h2 id="73">7.3 증강 기법 선택을 위한 실험 설계<a class="headerlink" href="#73" title="Permanent link">&para;</a></h2>
+<hr>
+<h2 id="73">7.3 증강 기법 선택을 위한 실험 설계<a class="headerlink" href="#73" title="Permanent link">¶</a></h2>
 <p>효과적인 증강 기법을 선택하기 위해서는 <strong>체계적인 실험 설계</strong>가 필요합니다.</p>
 <ul>
 <li><strong>교차검증(Cross-validation)</strong></li>
@@ -1807,8 +1829,8 @@
 <li>적용 확률(Probability)</li>
 <li>변환 조합 순서(Order)</li>
 </ul>
-<hr />
-<h2 id="74">7.4 데이터 증강 효과 검증을 위한 추가 방법<a class="headerlink" href="#74" title="Permanent link">&para;</a></h2>
+<hr>
+<h2 id="74">7.4 데이터 증강 효과 검증을 위한 추가 방법<a class="headerlink" href="#74" title="Permanent link">¶</a></h2>
 <ul>
 <li><strong>Hold-out Test Set 비교</strong></li>
 <li>학습·검증에 사용되지 않은 완전 독립 테스트셋에서 성능 비교</li>
@@ -1823,19 +1845,19 @@
 <li><strong>Inference Time 영향 분석</strong></li>
 <li>증강으로 인한 모델 복잡도·추론 속도 변화 확인</li>
 </ul>
-<hr />
-<h2 id="_8">📌 정리<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
-<p>데이터 증강의 효과를 검증하려면 <strong>성능 지표 비교 + 품질 평가 + 실험 설계</strong>가 삼박자로 맞아야 합니다.<br />
+<hr>
+<h2 id="_8">📌 정리<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
+<p>데이터 증강의 효과를 검증하려면 <strong>성능 지표 비교 + 품질 평가 + 실험 설계</strong>가 삼박자로 맞아야 합니다.<br>
 단순히 데이터 양을 늘리는 것이 아니라, <strong>태스크에 맞는 고품질 증강</strong>과 <strong>체계적인 검증 절차</strong>가 필수입니다.</p>
-<hr />
-<h1 id="_9">전체 요약<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h1>
+<hr>
+<h1 id="_9">전체 요약<a class="headerlink" href="#_9" title="Permanent link">¶</a></h1>
 <ul>
 <li><strong>오디오 증강</strong>: 속도/피치 변환, 스펙트로그램 마스킹, 잡음 추가, TTS 활용.  </li>
 <li><strong>멀티모달 증강</strong>: 여러 모달리티 동시 활용, Cross-Modal Consistency 유지 필수.  </li>
 <li><strong>자동화 &amp; 라이브러리</strong>: OpenCV, Albumentations, NLPAug, torchaudio 등 다양한 툴 존재.  </li>
 <li><strong>효과 검증</strong>: 단순히 데이터 양 증가가 아닌, 성능 향상 여부 검증 필수.  </li>
 </ul>
-<p>데이터 증강은 <strong>모델의 일반화 성능 향상</strong>과 <strong>데이터 부족 문제 해결</strong>의 핵심 전략이다.</p>
+<p>데이터 증강은 <strong>모델의 일반화 성능 향상</strong>과 <strong>데이터 부족 문제 해결</strong>의 핵심 전략이다.</p></div>
 
 
 
