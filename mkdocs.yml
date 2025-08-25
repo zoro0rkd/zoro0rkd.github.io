@@ -22,6 +22,7 @@ nav:
   - AI 시스템 구축:
       - AI 시스템 설계 및 배포: AI-시스템-설계-및-배포-‐-NEW.md
       - AI 시스템 최적화: AI-시스템-최적화-‐-NEW.md
+  - 주요 AI 기술 트랜드: 주요-AI-기술-트랜드.md
   - 유용한 사이트: 유용한-사이트.md
 markdown_extensions:
   - admonition

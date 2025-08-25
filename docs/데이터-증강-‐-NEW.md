@@ -148,7 +148,8 @@
   - 한 이미지의 일부 패치를 잘라내고 다른 이미지에 붙이는 방식. 라벨도 비율에 따라 혼합
   - 다양한 위치와 배경에서 객체 인식을 돕고, 데이터 다양성을 높임
   - 복잡한 배경에서의 객체 탐지에 자주 활용
-    ![Cutmix](https://moonlight-paper-snapshot.s3.ap-northeast-2.amazonaws.com/arxiv/enhanced-long-tailed-recognition-with-contrastive-cutmix-augmentation-0.png)
+  
+    <img width="400" height="400" alt="image" src="https://miro.medium.com/v2/resize:fit:1200/1*AYyS08SHERhl_ZDB_wWtvg.jpeg"/>
 
 - **GAN 기반 데이터 생성**  
   - 생성적 적대 신경망(Generative Adversarial Network)을 활용해 가상의 이미지 생성  
@@ -355,9 +356,6 @@
 
 👉 정리하면, 텍스트 증강은 모델 성능 향상뿐만 아니라 데이터 다양성 확보와 학습 안정성을 높이는 데 필수적인 전략이다.
 
----
-
---- 데이터 증강 기법 정리 (심화) ---
 ---
 
 # 4. 오디오 데이터 증강
@@ -740,7 +738,9 @@
 ### 7.1.1 정확도 (Accuracy)
 - **정의**: 전체 예측 중에서 맞춘 비율.
 - **계산식**:  
-  $$ Accuracy = \frac{TP + TN}{TP + TN + FP + FN} $$
+  ```math
+   Accuracy = \frac{TP + TN}{TP + TN + FP + FN}
+  ```
   - TP: True Positive
   - TN: True Negative
   - FP: False Positive
@@ -748,6 +748,7 @@
 - **특징**
   - 데이터 클래스 분포가 균형 잡혀 있을 때 유용.
   - 클래스 불균형이 심하면 성능을 과대평가할 수 있음.
+  - 샘플링된 데이터의 개수가 불균형일 경우, 즉 "True (실제)" 아주 크거나 작을 경우 점수가 왜곡됩니다.
 - **활용 예시**
   - 이미지 분류, 음성 인식 등 전반적인 분류 정확도 평가.
 - **참고 이미지**: [Accuracy 개념 그래프](https://wikidocs.net/192942)
@@ -756,10 +757,12 @@
 
 ### 7.1.2 정밀도 (Precision)
 - **정의**: 모델이 Positive로 예측한 것 중 실제 Positive의 비율.
-- **계산식**:  
-  $$ Precision = \frac{TP}{TP + FP} $$
+- **계산식**
+  ```math
+  Precision = \frac{TP}{TP + FP}
+  ```
 - **특징**
-  - FP(거짓 양성)를 줄이는 데 초점.
+  - FP(거짓 양성)를 줄이는 데 초점. False 데이터를 True로 판정하는 경우를 줄이는데 촛점이 맞춰져 있습니다.
   - "양성이라고 한 것 중 얼마나 맞췄나"를 평가.
 - **활용 예시**
   - 스팸 필터링(정상 메일을 스팸으로 분류하는 오류 최소화).
@@ -770,9 +773,11 @@
 ### 7.1.3 재현율 (Recall, Sensitivity)
 - **정의**: 실제 Positive 중에서 모델이 Positive로 맞춘 비율.
 - **계산식**:  
-  $$ Recall = \frac{TP}{TP + FN} $$
+  ```math
+  Recall = \frac{TP}{TP + FN}
+  ```
 - **특징**
-  - FN(거짓 음성)을 줄이는 데 초점.
+  - FN(거짓 음성)을 줄이는 데 초점. True 데이터를 False로 판정하는 경우를 줄이는데 촛점이 맞춰져 있습니다.
   - "실제 양성을 얼마나 놓치지 않았나"를 평가.
 - **활용 예시**
   - 질병 진단(환자를 놓치지 않는 것이 중요).
@@ -783,7 +788,9 @@
 ### 7.1.4 F1-score
 - **정의**: Precision과 Recall의 조화 평균.
 - **계산식**:  
-  $$ F1 = 2 \times \frac{Precision \times Recall}{Precision + Recall} $$
+  ```math
+   F1 = 2 \times \frac{Precision \times Recall}{Precision + Recall}
+   ```
 - **특징**
   - Precision과 Recall의 균형을 평가.
   - 한쪽이 낮으면 F1-score도 낮아짐.
