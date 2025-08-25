@@ -24,6 +24,7 @@ nav:
       - AI 시스템 최적화: AI-시스템-최적화-‐-NEW.md
   - 주요 AI 기술 트랜드: 주요-AI-기술-트랜드.md
   - 유용한 사이트: 유용한-사이트.md
+  - FSDL2022: FSDL2022.md
 markdown_extensions:
   - admonition
   - toc:
@@ -31,8 +32,11 @@ markdown_extensions:
   - pymdownx.magiclink
   - pymdownx.arithmatex:
       generic: true
+  - attr_list        # ← 링크/이미지에 { target="_blank" } 등 속성 사용
+  - md_in_html       # ← Markdown 안에서 HTML(iframe/object) 허용
 plugins:
   - search  # 기본 내장 (Lunr 기반)
+  - mkdocs-pdf
 extra_javascript:
   - javascripts/katex.js
   - https://unpkg.com/katex@0/dist/katex.min.js
